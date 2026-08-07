@@ -1,5 +1,4 @@
-<h1 align="center">FRY OR DIE</h1>
-
+<h1 align="center">FRY OR DIE  https://makintosh365.itch.io/fry-or-die</h1>
 <table>
 <tr>
 <td width="60%" valign="top" align="center">
