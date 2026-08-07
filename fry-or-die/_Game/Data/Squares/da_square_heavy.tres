@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SquareDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://_Game/Data/Squares/square_def.gd" id="1_def"]
+
+[resource]
+script = ExtResource("1_def")
+display_name = "Heavy"
+min_side = 58.0
+max_side = 72.0
+density = 1.6
+use_custom_color = true
+custom_color = Color(0.55, 0.15, 0.2, 1)

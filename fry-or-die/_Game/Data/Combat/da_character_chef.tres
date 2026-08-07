@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CharacterModel" format=3 uid="uid://n1w5gwoqgxyg"]
+
+[ext_resource type="Script" uid="uid://bmknppjabmiv4" path="res://_Game/Data/Combat/portrait_style.gd" id="1_portrait"]
+[ext_resource type="Script" uid="uid://b6y7f67b5vsmq" path="res://scripts/models/character_model.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://cr76wx7m8473b" path="res://scripts/models/ingredient_model.gd" id="2_ing"]
+[ext_resource type="Script" uid="uid://bkpum1t1v5air" path="res://scripts/models/spice_model.gd" id="12_g76uf"]
+[ext_resource type="Script" uid="uid://bdrlxkptbx2aj" path="res://scripts/models/tool_model.gd" id="13_bu7u1"]
+[ext_resource type="Texture2D" uid="uid://br6q23vris2bk" path="res://_Game/Art/Chef/Player.png" id="25_chef_tex"]
+[ext_resource type="Resource" uid="uid://b82teadws1535" path="res://_Game/Data/Combat/Ingredients/da_ing_beet.tres" id="i_beet"]
+[ext_resource type="Resource" uid="uid://vo8lf72fma28" path="res://_Game/Data/Combat/Ingredients/da_ing_brown_egg.tres" id="i_brown_egg"]
+[ext_resource type="Resource" uid="uid://lw7vaxusd41x" path="res://_Game/Data/Combat/Ingredients/da_ing_carrot.tres" id="i_carrot"]
+[ext_resource type="Resource" uid="uid://co4jpof6j1v3u" path="res://_Game/Data/Combat/Ingredients/da_ing_garlic.tres" id="i_garlic"]
+[ext_resource type="Resource" uid="uid://dwyhewyflt1q1" path="res://_Game/Data/Combat/Ingredients/da_ing_leek.tres" id="i_leek"]
+[ext_resource type="Resource" uid="uid://bcndtgb4bkv3n" path="res://_Game/Data/Combat/Ingredients/da_ing_meat.tres" id="i_meat"]
+[ext_resource type="Resource" uid="uid://co6sqoxwjmk56" path="res://_Game/Data/Combat/Ingredients/da_ing_salmon.tres" id="i_salmon"]
+[ext_resource type="Resource" uid="uid://dwpyqtxyty6kj" path="res://_Game/Data/Combat/Ingredients/da_ing_shiitake.tres" id="i_shiitake"]
+[ext_resource type="Resource" uid="uid://kw23nixqtld5" path="res://_Game/Data/Combat/Ingredients/da_ing_tomatoes.tres" id="i_tomatoes"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Ingredients/da_ing_white_egg.tres" id="i_white_egg"]
+[ext_resource type="Resource" uid="uid://b70kpnpjdwkxb" path="res://_Game/Data/Combat/Spices/da_spice_mint.tres" id="s_mint"]
+[ext_resource type="Resource" uid="uid://c6bc8x4hkh7io" path="res://_Game/Data/Combat/Spices/da_spice_mustard.tres" id="s_mustard"]
+[ext_resource type="Resource" uid="uid://b36c06kyiwm1h" path="res://_Game/Data/Combat/Spices/da_spice_oil.tres" id="s_oil"]
+[ext_resource type="Resource" uid="uid://cccetbfyu7a4b" path="res://_Game/Data/Combat/Spices/da_spice_pepper.tres" id="s_pepper"]
+[ext_resource type="Resource" uid="uid://cohgh4fstshsm" path="res://_Game/Data/Combat/Spices/da_spice_wine.tres" id="s_wine"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Tools/da_tool_burner.tres" id="t_burner"]
+[ext_resource type="Resource" uid="uid://clbi065bixdy1" path="res://_Game/Data/Combat/Tools/da_tool_tongs.tres" id="t_tongs"]
+
+[sub_resource type="Resource" id="Portrait_chef"]
+script = ExtResource("1_portrait")
+texture = ExtResource("25_chef_tex")
+name_color = Color(0.6, 0.85, 0.95, 1)
+
+[resource]
+script = ExtResource("1_script")
+id = &"chef"
+display_name = "Bob"
+portrait = SubResource("Portrait_chef")
+starting_ingredient_pool = Array[ExtResource("2_ing")]([ExtResource("i_tomatoes"), ExtResource("i_leek"), ExtResource("i_salmon"), ExtResource("i_garlic"), ExtResource("i_shiitake"), ExtResource("i_white_egg"), ExtResource("i_brown_egg")])
+random_small_count = 4
+random_medium_count = 6
+random_positive_pool = Array[ExtResource("2_ing")]([ExtResource("i_beet"), ExtResource("i_carrot"), ExtResource("i_meat")])
+random_tool_pool = Array[ExtResource("13_bu7u1")]([ExtResource("t_burner"), ExtResource("t_tongs")])
+random_spice_pool = Array[ExtResource("12_g76uf")]([ExtResource("s_pepper"), ExtResource("s_oil"), ExtResource("s_wine"), ExtResource("s_mustard"), ExtResource("s_mint")])

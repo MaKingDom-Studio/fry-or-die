@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpicePepper" format=3 uid="uid://cccetbfyu7a4b"]
+
+[ext_resource type="Script" uid="uid://dwk6353p7m3w1" path="res://scripts/models/spices/spice_pepper.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://wm0f47arq7s0" path="res://_Game/Art/Spices/Peper.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"pepper"
+display_name = "Pepper"
+description = "Gives 1 more ingredient in the basket."
+texture = ExtResource("2_tex")
+color = Color(0.75, 0.2, 0.15, 1)
+visual_scale = 0.9
+z_order = 17
+price = 5

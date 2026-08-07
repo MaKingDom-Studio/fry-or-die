@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="IngredientModel" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/models/ingredient_model.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cukkjyardlj0f" path="res://_Game/Art/Ingredients/Ing_White_Egg.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"white_egg"
+display_name = "White Egg"
+size = 0
+texture = ExtResource("2_tex")
+weight = 2
+multiplier = 1.0
+effect = 0
+effect_amount = 0
+locked = false
+permanent = false
+drops_on_player_side = false
+shape = 1
+color = Color(0.95, 0.94, 0.9, 1)
+radius = 18.0
+price = 3
+shop_weight = 1.0

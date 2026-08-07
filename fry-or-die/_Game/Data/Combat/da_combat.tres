@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CombatConfig" format=3 uid="uid://cpj0a1nf1sand"]
+
+[ext_resource type="Script" uid="uid://nc1n2l5jn52n" path="res://_Game/Data/Combat/combat_config.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+points_per_star = 20.0
+round_timer_seconds = 5.0
+elasticity = 0.654
+slide_damp = 0.31
+drag_inertia = 0.606
+basket_size = 10

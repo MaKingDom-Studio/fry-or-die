@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ToolTongs" format=3 uid="uid://clbi065bixdy1"]
+
+[ext_resource type="Script" uid="uid://0o854a382edy" path="res://scripts/models/tools/tool_tongs.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://jrwq2ivfkyj4" path="res://scripts/models/tongs_ability.gd" id="2_ability"]
+[ext_resource type="Texture2D" uid="uid://bqia8s3qkidtd" path="res://_Game/Art/Item/Tongs_Open.png" id="3_open"]
+[ext_resource type="Texture2D" uid="uid://cam4oyerq1ua1" path="res://_Game/Art/Item/Tongs_Close.png" id="4_close"]
+[ext_resource type="Texture2D" uid="uid://dep5k1ksrj48b" path="res://_Game/Art/Tools/Tongs.png" id="5_texture"]
+
+[sub_resource type="Resource" id="Ability_tongs_player"]
+script = ExtResource("2_ability")
+steal_count = 1
+open_texture = ExtResource("3_open")
+close_texture = ExtResource("4_close")
+mirror = true
+
+[resource]
+script = ExtResource("1_script")
+ability = SubResource("Ability_tongs_player")
+id = &"tongs"
+display_name = "Tongs"
+description = "Drag a valuable ingredient from the enemy half over to you."
+texture = ExtResource("5_texture")
+color = Color(0.55, 0.6, 0.7, 1)

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpiceWine" format=3 uid="uid://cohgh4fstshsm"]
+
+[ext_resource type="Script" uid="uid://bya480fowgsqy" path="res://scripts/models/spices/spice_wine.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://c2i558umy6gw8" path="res://_Game/Art/Spices/Vine.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"wine"
+display_name = "Wine"
+description = "Adds 2 seconds to the round timer."
+texture = ExtResource("2_tex")
+color = Color(0.5, 0.15, 0.35, 1)
+z_order = 16
+price = 11

@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="MapStyle" format=3]
+
+[ext_resource type="Script" path="res://_Game/Data/Map/map_style.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://bu6byc4hli6vr" path="res://_Game/Art/UI/Fonts/Grunge Bold V2.ttf" id="2_font"]
+[ext_resource type="Resource" path="res://_Game/Data/Map/Points/da_point_start.tres" id="3_start"]
+[ext_resource type="Resource" path="res://_Game/Data/Map/Points/da_point_battle.tres" id="4_enemy"]
+[ext_resource type="Resource" path="res://_Game/Data/Map/Points/da_point_miniboss.tres" id="5_miniboss"]
+[ext_resource type="Resource" path="res://_Game/Data/Map/Points/da_point_shop.tres" id="6_shop"]
+[ext_resource type="Resource" path="res://_Game/Data/Map/Points/da_point_boss.tres" id="7_boss"]
+[ext_resource type="Resource" path="res://_Game/Data/Map/da_map_circle.tres" id="8_circle"]
+
+[resource]
+script = ExtResource("1_script")
+frame_color = Color(0.22, 0.22, 0.23, 1)
+frame_margin = Vector2(0, 0)
+panel_gap = 0.0
+graph_width_frac = 0.59
+graph_bg = Color(0.89, 0.83, 0.68, 1)
+spike_bg = Color(0.29, 0.29, 0.29, 1)
+art_start = ExtResource("3_start")
+art_enemy = ExtResource("4_enemy")
+art_miniboss = ExtResource("5_miniboss")
+art_shop = ExtResource("6_shop")
+art_boss = ExtResource("7_boss")
+point_scale = 1.0
+alternate_tilt = true
+circle = ExtResource("8_circle")
+content_height = 1600.0
+content_margin_top = 90.0
+content_margin_bottom = 90.0
+column_width = 150.0
+wobble_pixels = Vector2(46, 22)
+sheet_tilt = 0.0
+scroll_step = 110.0
+scroll_follow = 12.0
+drag_threshold = 6.0
+spine_color = Color(0.05, 0.05, 0.05, 1)
+spine_width = 0.0
+spine_over_points = false
+line_color = Color(0.05, 0.05, 0.05, 1)
+line_width = 9.0
+line_cleared_color = Color(0.55, 0.49, 0.4, 1)
+line_wobble = 16.0
+line_segments = 6
+dash_length = 0.0
+dash_gap = 0.0
+hover_grow = 1.06
+locked_dim = 0.15
+pin_color = Color(0.35, 0.3, 0.24, 1)
+pin_radius = 7.0
+title_font_size = 20
+title_color = Color(0.14, 0.12, 0.12, 1)
+title_offset = Vector2(0, -12)
+title_outline_size = 6
+title_outline_color = Color(0.95, 0.91, 0.83, 0.95)
+font = ExtResource("2_font")
+show_legend = false
+legend_position = Vector2(0.08, 0.86)
+legend_row_height = 26.0
+legend_font_size = 17
+legend_color = Color(0.82, 0.81, 0.78, 1)
+legend_shop_text = "S — shop"
+legend_miniboss_text = "M — mini-boss"
+legend_boss_text = "B — boss"
+header_text = ""
+header_position = Vector2(0.5, 0.06)
+header_font_size = 26
+header_color = Color(0.2, 0.17, 0.14, 1)

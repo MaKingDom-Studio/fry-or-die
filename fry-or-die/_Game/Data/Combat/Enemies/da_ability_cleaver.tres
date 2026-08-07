@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="CleaverAbility" format=3]
+
+[ext_resource type="Script" path="res://scripts/models/cleaver_ability.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bvthj2xwgkido" path="res://_Game/Art/Tools/Cleaver_TOP.png" id="2_blade"]
+
+[resource]
+script = ExtResource("1_script")
+strike_line_offset = 0.0
+every_n_rounds = 2
+hop_height = 65.0
+hop_height_variance = 20.0
+hop_gravity = 2600.0
+hop_bounce = 0.3
+push_distance = 75.0
+push_speed = 85.0
+texture = ExtResource("2_blade")
+blade_length = 380.0
+blade_offset = Vector2(0, 0)
+hit_grow = 0.0
+draw_z_index = 96
+entry_scale = 2.2
+entry_alpha = 0.35
+raise_scale = 1.5
+raise_tilt = -0.15
+raise_duration = 0.45
+chop_duration = 0.12
+hold_pause = 0.22
+retreat_duration = 0.4
+settle_pause = 0.5

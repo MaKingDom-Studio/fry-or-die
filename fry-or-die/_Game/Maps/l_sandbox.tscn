@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://_Game/Core/GameModes/gm_sandbox.gd" id="1_gm"]
+[ext_resource type="Script" path="res://_Game/UI/HUD/drag_overlay.gd" id="2_overlay"]
+[ext_resource type="Resource" path="res://_Game/Data/Sandbox/da_sandbox.tres" id="3_config"]
+
+[node name="Sandbox" type="Node2D"]
+script = ExtResource("1_gm")
+config = ExtResource("3_config")
+
+[node name="Arena" type="Node2D" parent="."]
+
+[node name="DragOverlay" type="Node2D" parent="."]
+z_index = 100
+script = ExtResource("2_overlay")

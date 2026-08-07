@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ToolRod" format=3 uid="uid://e8ed51lajmeq"]
+
+[ext_resource type="Script" uid="uid://de0fc81hh3uc0" path="res://scripts/models/tools/tool_rod.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cq3bw5am3s206" path="res://_Game/Art/Tools/Fishing_Rod.png" id="2_texture"]
+[ext_resource type="Script" uid="uid://2qi4m6a0f8t5" path="res://scripts/models/hook_ability.gd" id="3_ability"]
+[ext_resource type="Texture2D" uid="uid://gu5u22oc23vk" path="res://_Game/Art/Item/Hook.png" id="4_hook_tex"]
+
+[sub_resource type="Resource" id="Ability_hook_player"]
+script = ExtResource("3_ability")
+texture = ExtResource("4_hook_tex")
+image_scale = 0.22
+mirror = true
+hook_anchor = Vector2(0.26, 0.58)
+eye_anchor = Vector2(0.886, 0.193)
+image_rotation = -17.0
+pull_stiffness = 20.0
+
+[resource]
+script = ExtResource("1_script")
+ability = SubResource("Ability_hook_player")
+id = &"rod"
+display_name = "Fishing Rod"
+description = "Hooks the ingredient farthest from you and reels it over to your half. Also lets you move ingredients in the enemy area."
+texture = ExtResource("2_texture")
+color = Color(0.35, 0.55, 0.85, 1)

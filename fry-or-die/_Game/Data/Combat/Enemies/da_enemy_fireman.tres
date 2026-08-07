@@ -1,0 +1,125 @@
+[gd_resource type="Resource" script_class="EnemyModel" format=3 uid="uid://gmgyfyey1agd"]
+
+[ext_resource type="Script" uid="uid://bmknppjabmiv4" path="res://_Game/Data/Combat/portrait_style.gd" id="1_portrait"]
+[ext_resource type="Script" uid="uid://xo362ml61oo5" path="res://scripts/models/enemy_model.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://w3xbjulk4k10" path="res://scripts/models/enemy_move.gd" id="2_move"]
+[ext_resource type="Script" uid="uid://cq8n2vg7rkxm4" path="res://scripts/models/enemy_spawn_group.gd" id="3_group"]
+[ext_resource type="Script" uid="uid://cr76wx7m8473b" path="res://scripts/models/ingredient_model.gd" id="4_ing"]
+[ext_resource type="Texture2D" uid="uid://bs6cgot1t2qv7" path="res://_Game/Art/Chef/Mini_Boss_Fireman.png" id="5_fireman"]
+[ext_resource type="Resource" uid="uid://vo8lf72fma28" path="res://_Game/Data/Combat/Ingredients/da_ing_brown_egg.tres" id="i_brown_egg"]
+[ext_resource type="Resource" uid="uid://lw7vaxusd41x" path="res://_Game/Data/Combat/Ingredients/da_ing_carrot.tres" id="i_carrot"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Ingredients/da_ing_chile_pepper.tres" id="i_chile_pepper"]
+[ext_resource type="Resource" uid="uid://bcndtgb4bkv3n" path="res://_Game/Data/Combat/Ingredients/da_ing_meat.tres" id="i_meat"]
+[ext_resource type="Resource" uid="uid://dwpyqtxyty6kj" path="res://_Game/Data/Combat/Ingredients/da_ing_shiitake.tres" id="i_shiitake"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Ingredients/da_ing_turner.tres" id="i_turner"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Ingredients/da_ing_white_egg.tres" id="i_white_egg"]
+[ext_resource type="Resource" path="res://_Game/Data/Map/Points/da_point_miniboss_fireman.tres" id="m_point"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Tools/da_tool_burner.tres" id="t_burner"]
+
+[sub_resource type="Resource" id="G1_pepper_player"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_chile_pepper")
+count = 2
+placement = 1
+
+[sub_resource type="Resource" id="G1_carrot"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_carrot")
+count = 3
+
+[sub_resource type="Resource" id="Move_1"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G1_pepper_player"), SubResource("G1_carrot")])
+
+[sub_resource type="Resource" id="G2_meat"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_meat")
+count = 2
+
+[sub_resource type="Resource" id="G2_shiitake"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_shiitake")
+count = 2
+
+[sub_resource type="Resource" id="Move_2"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G2_meat"), SubResource("G2_shiitake")])
+
+[sub_resource type="Resource" id="G3_turner_center"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_turner")
+count = 4
+placement = 2
+
+[sub_resource type="Resource" id="G3_pepper_enemy"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_chile_pepper")
+count = 2
+
+[sub_resource type="Resource" id="Move_3"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G3_turner_center"), SubResource("G3_pepper_enemy")])
+
+[sub_resource type="Resource" id="G4_meat"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_meat")
+
+[sub_resource type="Resource" id="G4_shiitake"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_shiitake")
+
+[sub_resource type="Resource" id="G4_white_egg"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_white_egg")
+count = 2
+
+[sub_resource type="Resource" id="G4_brown_egg"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_brown_egg")
+count = 2
+
+[sub_resource type="Resource" id="Move_4"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G4_meat"), SubResource("G4_shiitake"), SubResource("G4_white_egg"), SubResource("G4_brown_egg")])
+
+[sub_resource type="Resource" id="G5_turner_center"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_turner")
+count = 6
+placement = 2
+
+[sub_resource type="Resource" id="G5_pepper_player"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_chile_pepper")
+placement = 1
+
+[sub_resource type="Resource" id="Move_5"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G5_turner_center"), SubResource("G5_pepper_player")])
+
+[sub_resource type="Resource" id="G6_random"]
+script = ExtResource("3_group")
+random_points = 20
+random_points_variance = 5
+
+[sub_resource type="Resource" id="Move_6"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G6_random")])
+
+[sub_resource type="Resource" id="Portrait_enemy"]
+script = ExtResource("1_portrait")
+texture = ExtResource("5_fireman")
+scale = 1.5
+name_color = Color(0.98, 0.55, 0.3, 1)
+
+[resource]
+script = ExtResource("1_script")
+id = &"mini_boss_fireman"
+display_name = "Fireman"
+portrait = SubResource("Portrait_enemy")
+star_target = 7
+inventory = Array[ExtResource("4_ing")]([ExtResource("i_chile_pepper"), ExtResource("i_carrot"), ExtResource("i_meat"), ExtResource("i_shiitake"), ExtResource("i_turner"), ExtResource("i_white_egg"), ExtResource("i_brown_egg")])
+moves = Array[ExtResource("2_move")]([SubResource("Move_1"), SubResource("Move_2"), SubResource("Move_3"), SubResource("Move_4"), SubResource("Move_5"), SubResource("Move_6")])
+burn_player_ingredients = 1
+reward_tool = ExtResource("t_burner")
+map_art = ExtResource("m_point")

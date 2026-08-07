@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="EnemyModel" format=3 uid="uid://bpcee0pnwnaml"]
+
+[ext_resource type="Script" uid="uid://bmknppjabmiv4" path="res://_Game/Data/Combat/portrait_style.gd" id="1_portrait"]
+[ext_resource type="Script" uid="uid://xo362ml61oo5" path="res://scripts/models/enemy_model.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://w3xbjulk4k10" path="res://scripts/models/enemy_move.gd" id="2_move"]
+[ext_resource type="Script" uid="uid://cq8n2vg7rkxm4" path="res://scripts/models/enemy_spawn_group.gd" id="3_group"]
+[ext_resource type="Script" uid="uid://cr76wx7m8473b" path="res://scripts/models/ingredient_model.gd" id="4_ing"]
+[ext_resource type="Texture2D" uid="uid://bbfqnrijlm26u" path="res://_Game/Art/Chef/Chef_Avatar.png" id="art_chef"]
+[ext_resource type="Resource" uid="uid://b82teadws1535" path="res://_Game/Data/Combat/Ingredients/da_ing_beet.tres" id="i_beet"]
+[ext_resource type="Resource" uid="uid://lw7vaxusd41x" path="res://_Game/Data/Combat/Ingredients/da_ing_carrot.tres" id="i_carrot"]
+[ext_resource type="Resource" uid="uid://co4jpof6j1v3u" path="res://_Game/Data/Combat/Ingredients/da_ing_garlic.tres" id="i_garlic"]
+[ext_resource type="Resource" uid="uid://dwyhewyflt1q1" path="res://_Game/Data/Combat/Ingredients/da_ing_leek.tres" id="i_leek"]
+[ext_resource type="Resource" uid="uid://co6sqoxwjmk56" path="res://_Game/Data/Combat/Ingredients/da_ing_salmon.tres" id="i_salmon"]
+[ext_resource type="Resource" uid="uid://x0sbr4vpayt8" path="res://_Game/Data/Combat/Ingredients/da_ing_soap.tres" id="i_soap"]
+
+[sub_resource type="Resource" id="G1_carrot"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_carrot")
+
+[sub_resource type="Resource" id="G1_leek"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_leek")
+
+[sub_resource type="Resource" id="Move_1"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G1_carrot"), SubResource("G1_leek")])
+
+[sub_resource type="Resource" id="G2_soap_player"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_soap")
+count = 2
+placement = 1
+
+[sub_resource type="Resource" id="Move_2"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G2_soap_player")])
+
+[sub_resource type="Resource" id="G3_salmon"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_salmon")
+
+[sub_resource type="Resource" id="G3_carrot"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_carrot")
+
+[sub_resource type="Resource" id="Move_3"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G3_salmon"), SubResource("G3_carrot")])
+
+[sub_resource type="Resource" id="G4_random"]
+script = ExtResource("3_group")
+random_points = 10
+
+[sub_resource type="Resource" id="Move_4"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G4_random")])
+
+[sub_resource type="Resource" id="Portrait_enemy"]
+script = ExtResource("1_portrait")
+texture = ExtResource("art_chef")
+scale = 1.5
+name_color = Color(0.95, 0.6, 0.55, 1)
+
+[resource]
+script = ExtResource("1_script")
+id = &"avatar_cook"
+display_name = "Avatar"
+portrait = SubResource("Portrait_enemy")
+round_timer_seconds = 7.0
+inventory = Array[ExtResource("4_ing")]([ExtResource("i_beet"), ExtResource("i_carrot"), ExtResource("i_soap"), ExtResource("i_salmon"), ExtResource("i_garlic")])
+moves = Array[ExtResource("2_move")]([SubResource("Move_1"), SubResource("Move_2"), SubResource("Move_3"), SubResource("Move_4")])

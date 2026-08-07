@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="EnemyModel" format=3 uid="uid://bhtpsdqvm3qa3"]
+
+[ext_resource type="Script" uid="uid://bmknppjabmiv4" path="res://_Game/Data/Combat/portrait_style.gd" id="1_portrait"]
+[ext_resource type="Script" uid="uid://xo362ml61oo5" path="res://scripts/models/enemy_model.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://w3xbjulk4k10" path="res://scripts/models/enemy_move.gd" id="2_move"]
+[ext_resource type="Script" uid="uid://cq8n2vg7rkxm4" path="res://scripts/models/enemy_spawn_group.gd" id="3_group"]
+[ext_resource type="Script" uid="uid://cr76wx7m8473b" path="res://scripts/models/ingredient_model.gd" id="4_ing"]
+[ext_resource type="Texture2D" uid="uid://rgd8dlivndv3" path="res://_Game/Art/Chef/Chef_Moustache.png" id="art_chef"]
+[ext_resource type="Resource" uid="uid://dwyhewyflt1q1" path="res://_Game/Data/Combat/Ingredients/da_ing_leek.tres" id="i_leek"]
+[ext_resource type="Resource" uid="uid://co6sqoxwjmk56" path="res://_Game/Data/Combat/Ingredients/da_ing_salmon.tres" id="i_salmon"]
+[ext_resource type="Resource" uid="uid://kw23nixqtld5" path="res://_Game/Data/Combat/Ingredients/da_ing_tomatoes.tres" id="i_tomatoes"]
+
+[sub_resource type="Resource" id="G1_tomato"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_tomatoes")
+
+[sub_resource type="Resource" id="G1_leek"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_leek")
+
+[sub_resource type="Resource" id="G1_salmon"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_salmon")
+
+[sub_resource type="Resource" id="Move_1"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G1_tomato"), SubResource("G1_leek"), SubResource("G1_salmon")])
+
+[sub_resource type="Resource" id="G2_tomato"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_tomatoes")
+count = 2
+
+[sub_resource type="Resource" id="Move_2"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G2_tomato")])
+
+[sub_resource type="Resource" id="G3_salmon"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_salmon")
+
+[sub_resource type="Resource" id="Move_3"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G3_salmon")])
+
+[sub_resource type="Resource" id="G4_salmon"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_salmon")
+
+[sub_resource type="Resource" id="Move_4"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G4_salmon")])
+
+[sub_resource type="Resource" id="Portrait_enemy"]
+script = ExtResource("1_portrait")
+texture = ExtResource("art_chef")
+scale = 1.5
+has_mustache = true
+name_color = Color(0.95, 0.6, 0.55, 1)
+
+[resource]
+script = ExtResource("1_script")
+id = &"mustache_cook"
+display_name = "Moustache"
+portrait = SubResource("Portrait_enemy")
+round_timer_seconds = 8.0
+spawn_count_multiplier = 1
+inventory = Array[ExtResource("4_ing")]([ExtResource("i_tomatoes"), ExtResource("i_leek"), ExtResource("i_salmon")])
+moves = Array[ExtResource("2_move")]([SubResource("Move_1"), SubResource("Move_2"), SubResource("Move_3"), SubResource("Move_4")])

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="InventoryConfig" format=3 uid="uid://c5jg27hdr6hqm"]
+
+[ext_resource type="Script" uid="uid://dffbir6r00wec" path="res://_Game/Data/Inventory/inventory_config.gd" id="1_cfg"]
+[ext_resource type="Script" uid="uid://b6apls8t5mww6" path="res://_Game/Data/Inventory/inventory_entry.gd" id="2_entry"]
+[ext_resource type="Resource" path="res://_Game/Data/Squares/da_square_light.tres" id="3_light"]
+[ext_resource type="Resource" path="res://_Game/Data/Squares/da_square_medium.tres" id="4_medium"]
+[ext_resource type="Resource" path="res://_Game/Data/Squares/da_square_heavy.tres" id="5_heavy"]
+
+[sub_resource type="Resource" id="Entry_light"]
+script = ExtResource("2_entry")
+def = ExtResource("3_light")
+count = 4
+
+[sub_resource type="Resource" id="Entry_medium"]
+script = ExtResource("2_entry")
+def = ExtResource("4_medium")
+count = 4
+
+[sub_resource type="Resource" id="Entry_heavy"]
+script = ExtResource("2_entry")
+def = ExtResource("5_heavy")
+count = 2
+
+[resource]
+script = ExtResource("1_cfg")
+entries = Array[ExtResource("2_entry")]([SubResource("Entry_light"), SubResource("Entry_medium"), SubResource("Entry_heavy")])

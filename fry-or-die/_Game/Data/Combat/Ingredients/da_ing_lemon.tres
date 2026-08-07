@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="IngredientModel" format=3 uid="uid://c31djjmou5oy6"]
+
+[ext_resource type="Script" uid="uid://cr76wx7m8473b" path="res://scripts/models/ingredient_model.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://n5ohmb0q66sn" path="res://_Game/Art/Ingredients/Ing_Lemon.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://b4pe5kg6y5rs8" path="res://_Game/Art/Ingredients/Ing_Lemon_Shadow.png" id="3_shadow"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"lemon"
+display_name = "Lemon"
+size = 0
+texture = ExtResource("2_tex")
+weight = 3
+effect = 2
+effect_amount = 1
+price = 6
+shop_weight = 0.8
+shadow_texture = ExtResource("3_shadow")
+color = Color(0.95, 0.85, 0.2, 1)
+radius = 21.0

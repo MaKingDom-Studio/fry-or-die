@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EndScreenConfig" format=3]
+
+[ext_resource type="Script" path="res://_Game/Data/Combat/UI/end_screen_config.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://_Game/Art/Victory_Defeat/END.png" id="t_end"]
+[ext_resource type="Texture2D" uid="uid://l2q5kclbahx6" path="res://_Game/Art/Victory_Defeat/Button_Try_Again.png" id="t_button"]
+
+[resource]
+script = ExtResource("1_script")
+background = Color(0, 0, 0, 1)
+fade_seconds = 0.6
+texture = ExtResource("t_end")
+rect = Rect2(0, 0, 1, 0.8)
+button_texture = ExtResource("t_button")
+button_rect = Rect2(0.36, 0.8, 0.28, 0.16)
+button_delay = 0.8

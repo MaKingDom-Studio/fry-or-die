@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ToolCleaver" format=3 uid="uid://bakmvc3nsulns"]
+
+[ext_resource type="Script" uid="uid://dejoono0smuqa" path="res://scripts/models/tools/tool_cleaver.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bt265wipl2m7p" path="res://_Game/Art/Tools/Cleaver.png" id="2_texture"]
+[ext_resource type="Script" uid="uid://bsamceawp6os3" path="res://scripts/models/cleaver_ability.gd" id="3_ability"]
+[ext_resource type="Texture2D" uid="uid://bvthj2xwgkido" path="res://_Game/Art/Tools/Cleaver_TOP.png" id="4_blade"]
+
+[sub_resource type="Resource" id="Ability_cleaver_player"]
+script = ExtResource("3_ability")
+every_n_rounds = 1
+texture = ExtResource("4_blade")
+
+[resource]
+script = ExtResource("1_script")
+ability = SubResource("Ability_cleaver_player")
+id = &"cleaver"
+display_name = "Cleaver"
+description = "Chops the middle of the table and drags everything under the blade over to you."
+texture = ExtResource("2_texture")
+color = Color(0.8, 0.25, 0.2, 1)

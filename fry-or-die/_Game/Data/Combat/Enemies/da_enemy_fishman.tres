@@ -1,0 +1,120 @@
+[gd_resource type="Resource" script_class="EnemyModel" format=3 uid="uid://123ntsffynle"]
+
+[ext_resource type="Script" uid="uid://bmknppjabmiv4" path="res://_Game/Data/Combat/portrait_style.gd" id="1_portrait"]
+[ext_resource type="Script" uid="uid://xo362ml61oo5" path="res://scripts/models/enemy_model.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://w3xbjulk4k10" path="res://scripts/models/enemy_move.gd" id="2_move"]
+[ext_resource type="Script" uid="uid://cq8n2vg7rkxm4" path="res://scripts/models/enemy_spawn_group.gd" id="3_group"]
+[ext_resource type="Script" uid="uid://cr76wx7m8473b" path="res://scripts/models/ingredient_model.gd" id="4_ing"]
+[ext_resource type="Texture2D" uid="uid://c6s57dh6iim4w" path="res://_Game/Art/Chef/Mini_Boss_Fishman.png" id="5_fishman"]
+[ext_resource type="Resource" uid="uid://p2i0dt17ckg0" path="res://_Game/Data/Combat/Enemies/da_ability_hook.tres" id="6_hook"]
+[ext_resource type="Resource" uid="uid://vj0wriujws5p" path="res://_Game/Data/Combat/Ingredients/da_ing_can.tres" id="i_can"]
+[ext_resource type="Resource" uid="uid://lw7vaxusd41x" path="res://_Game/Data/Combat/Ingredients/da_ing_carrot.tres" id="i_carrot"]
+[ext_resource type="Resource" uid="uid://df0kj0auws3rq" path="res://_Game/Data/Combat/Ingredients/da_ing_fish_bones.tres" id="i_fish_bones"]
+[ext_resource type="Resource" uid="uid://c31djjmou5oy6" path="res://_Game/Data/Combat/Ingredients/da_ing_lemon.tres" id="i_lemon"]
+[ext_resource type="Resource" uid="uid://bcndtgb4bkv3n" path="res://_Game/Data/Combat/Ingredients/da_ing_meat.tres" id="i_meat"]
+[ext_resource type="Resource" uid="uid://co6sqoxwjmk56" path="res://_Game/Data/Combat/Ingredients/da_ing_salmon.tres" id="i_salmon"]
+[ext_resource type="Resource" uid="uid://kw23nixqtld5" path="res://_Game/Data/Combat/Ingredients/da_ing_tomatoes.tres" id="i_tomatoes"]
+[ext_resource type="Resource" uid="uid://bxywbikkpway6" path="res://_Game/Data/Combat/Ingredients/da_ing_tuna.tres" id="i_tuna"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Ingredients/da_ing_turner.tres" id="i_turner"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Ingredients/da_ing_white_egg.tres" id="i_white_egg"]
+[ext_resource type="Resource" path="res://_Game/Data/Map/Points/da_point_miniboss_fishman.tres" id="m_point"]
+[ext_resource type="Resource" uid="uid://e8ed51lajmeq" path="res://_Game/Data/Combat/Tools/da_tool_rod.tres" id="t_rod"]
+
+[sub_resource type="Resource" id="G1_salmon"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_salmon")
+count = 2
+
+[sub_resource type="Resource" id="G1_tuna_center"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_tuna")
+placement = 2
+
+[sub_resource type="Resource" id="G1_bones_player"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_fish_bones")
+count = 2
+placement = 1
+
+[sub_resource type="Resource" id="Move_1"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G1_salmon"), SubResource("G1_tuna_center"), SubResource("G1_bones_player")])
+
+[sub_resource type="Resource" id="G2_carrot_player"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_carrot")
+placement = 1
+
+[sub_resource type="Resource" id="G2_tomatoes"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_tomatoes")
+count = 2
+
+[sub_resource type="Resource" id="G2_turner_center"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_turner")
+count = 2
+placement = 2
+
+[sub_resource type="Resource" id="Move_2"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G2_carrot_player"), SubResource("G2_tomatoes"), SubResource("G2_turner_center")])
+
+[sub_resource type="Resource" id="G3_bones_player"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_fish_bones")
+count = 3
+placement = 1
+
+[sub_resource type="Resource" id="G3_tomatoes"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_tomatoes")
+count = 2
+
+[sub_resource type="Resource" id="G3_lemon"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_lemon")
+
+[sub_resource type="Resource" id="Move_3"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G3_bones_player"), SubResource("G3_tomatoes"), SubResource("G3_lemon")])
+
+[sub_resource type="Resource" id="G4_random"]
+script = ExtResource("3_group")
+random_points = 10
+
+[sub_resource type="Resource" id="Move_4"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G4_random")])
+
+[sub_resource type="Resource" id="G5_can_center"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_can")
+count = 4
+placement = 2
+
+[sub_resource type="Resource" id="G5_tuna"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_tuna")
+
+[sub_resource type="Resource" id="Move_5"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G5_can_center"), SubResource("G5_tuna")])
+
+[sub_resource type="Resource" id="Portrait_enemy"]
+script = ExtResource("1_portrait")
+texture = ExtResource("5_fishman")
+scale = 1.5
+name_color = Color(0.6, 0.78, 0.88, 1)
+
+[resource]
+script = ExtResource("1_script")
+id = &"mini_boss_fishman"
+display_name = "Fishman"
+portrait = SubResource("Portrait_enemy")
+star_target = 7
+inventory = Array[ExtResource("4_ing")]([ExtResource("i_salmon"), ExtResource("i_meat"), ExtResource("i_tomatoes"), ExtResource("i_lemon"), ExtResource("i_white_egg"), ExtResource("i_carrot"), ExtResource("i_fish_bones"), ExtResource("i_can"), ExtResource("i_turner")])
+moves = Array[ExtResource("2_move")]([SubResource("Move_1"), SubResource("Move_2"), SubResource("Move_3"), SubResource("Move_4"), SubResource("Move_5")])
+hook = ExtResource("6_hook")
+reward_tool = ExtResource("t_rod")
+map_art = ExtResource("m_point")

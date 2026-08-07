@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ActMapConfig" format=3]
+
+[ext_resource type="Script" path="res://_Game/Data/Map/act_map_config.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://xo362ml61oo5" path="res://scripts/models/enemy_model.gd" id="2_enemy"]
+[ext_resource type="Resource" uid="uid://bhtpsdqvm3qa3" path="res://_Game/Data/Combat/Enemies/da_enemy_mustache.tres" id="3_chef_1"]
+[ext_resource type="Resource" uid="uid://bpcee0pnwnaml" path="res://_Game/Data/Combat/Enemies/da_enemy_avatar.tres" id="4_avatar"]
+[ext_resource type="Resource" uid="uid://dq7v3nxkm82ta" path="res://_Game/Data/Combat/Enemies/da_enemy_moustache3.tres" id="5_moustache3"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Enemies/da_enemy_chef_avatar_2.tres" id="6_chef_avatar"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Enemies/da_enemy_chef_liza2.tres" id="7_chef_liza"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Enemies/da_enemy_fireman.tres" id="8_fireman"]
+[ext_resource type="Resource" uid="uid://d2gm7e5qb247h" path="res://_Game/Data/Combat/Enemies/da_enemy_tongie.tres" id="9_tongie"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Enemies/da_enemy_fishman.tres" id="10_fishman"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Enemies/da_enemy_barbara.tres" id="11_barbara"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Enemies/da_enemy_boss.tres" id="12_boss"]
+
+[resource]
+script = ExtResource("1_script")
+branches = 2
+enemies_total = 7
+minibosses_per_branch = 2
+shops_per_branch_min = 1
+shops_min = 3
+shops_max = 3
+shared_shop_before_last_miniboss = true
+shop_before_boss = true
+first_enemy = ExtResource("3_chef_1")
+second_enemy = ExtResource("4_avatar")
+third_enemy = ExtResource("7_chef_liza")
+enemy_pool = Array[ExtResource("2_enemy")]([ExtResource("5_moustache3"), ExtResource("6_chef_avatar")])
+first_miniboss_pool = Array[ExtResource("2_enemy")]([ExtResource("9_tongie"), ExtResource("8_fireman")])
+miniboss_pool = Array[ExtResource("2_enemy")]([ExtResource("10_fishman"), ExtResource("11_barbara")])
+boss = ExtResource("12_boss")
+hub_row_frac = 0.9
+branch_top_frac = 0.82
+wobble = 0.85

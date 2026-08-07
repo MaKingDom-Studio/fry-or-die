@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CombatTheme" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://_Game/Data/Combat/combat_theme.gd" id="1_script"]
+[ext_resource type="ShaderMaterial" path="res://_Game/Data/Combat/FX/da_burn_dissolve.tres" id="2_burn"]
+[ext_resource type="ShaderMaterial" path="res://_Game/Data/Combat/FX/da_score_hit.tres" id="3_score_hit"]
+
+[resource]
+script = ExtResource("1_script")
+top_panel_height = 240.0
+burn_material = ExtResource("2_burn")
+burn_duration = 1.5
+show_ingredient_labels = false
+score_hit_material = ExtResource("3_score_hit")
+score_hit_duration = 0.45

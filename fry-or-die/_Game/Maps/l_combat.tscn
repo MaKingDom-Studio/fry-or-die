@@ -1,0 +1,525 @@
+[gd_scene format=3 uid="uid://7r3p7006udoy"]
+
+[ext_resource type="Script" uid="uid://bg2w2i0cx1f2x" path="res://_Game/Core/GameModes/gm_combat.gd" id="1_gm"]
+[ext_resource type="Script" uid="uid://cie8vyorifbpr" path="res://_Game/UI/HUD/combat_hud.gd" id="2_hud"]
+[ext_resource type="Script" uid="uid://doacym3nu0kvu" path="res://scripts/combat/combat_zone.gd" id="3_zone"]
+[ext_resource type="Script" uid="uid://dnemusrpu77r1" path="res://_Game/Maps/scene_background.gd" id="4_bg"]
+[ext_resource type="Script" uid="uid://bwn5x8qrt3ke7" path="res://_Game/UI/Widgets/hud_name_label.gd" id="5_name"]
+[ext_resource type="Texture2D" uid="uid://br6q23vris2bk" path="res://_Game/Art/Chef/Player.png" id="5_player_art"]
+[ext_resource type="Script" uid="uid://b0q56tlt0u31" path="res://_Game/UI/Widgets/hud_portrait.gd" id="5_portrait"]
+[ext_resource type="Script" uid="uid://bij1cyec63rmk" path="res://_Game/UI/Widgets/hud_star_row.gd" id="6_stars"]
+[ext_resource type="Texture2D" uid="uid://dgessnj7t4one" path="res://_Game/Art/Backgrounds/Battle_BG.png" id="7_c75dt"]
+[ext_resource type="Texture2D" uid="uid://cs57ytnpo23dl" path="res://_Game/Art/Table/Table.png" id="7_kpamm"]
+[ext_resource type="Script" uid="uid://be3228ixaptbj" path="res://_Game/UI/Widgets/hud_round_label.gd" id="7_round_label"]
+[ext_resource type="Script" uid="uid://c7m3q0hkw2ft" path="res://_Game/UI/Widgets/hud_timer.gd" id="7_timer"]
+[ext_resource type="Script" uid="uid://c2iavwk4tqm3b" path="res://_Game/UI/Widgets/hud_timer_button.gd" id="7_timer_button"]
+[ext_resource type="Script" uid="uid://dl8m4rphc6uyf" path="res://_Game/UI/Widgets/hud_timer_digits.gd" id="7_timer_digits"]
+[ext_resource type="Script" uid="uid://bqx3n7t5vk2wa" path="res://_Game/UI/Widgets/hud_timer_ring.gd" id="7_timer_ring"]
+[ext_resource type="Texture2D" uid="uid://bv4jirc6yur0" path="res://_Game/Art/Item/T_Item_Table.png" id="8_5ttp3"]
+[ext_resource type="Script" uid="uid://kmt2r6ukc4tu" path="res://_Game/UI/Widgets/hud_bag_button.gd" id="10_bag_btn"]
+[ext_resource type="Script" uid="uid://ct8yfmb0qn4w" path="res://_Game/UI/Widgets/bag_panel.gd" id="11_bag_panel"]
+[ext_resource type="Script" uid="uid://8gk5iryxs3ub" path="res://_Game/UI/Widgets/chip_container.gd" id="11_container"]
+[ext_resource type="Script" uid="uid://dm3kfxq0vb7r" path="res://_Game/UI/Widgets/basket_fill_point.gd" id="11_fill_point"]
+[ext_resource type="Texture2D" uid="uid://cege8xy5mx1sm" path="res://_Game/Art/Backgrounds/Panel.png" id="11_tlpkc"]
+[ext_resource type="Resource" uid="uid://cpj0a1nf1sand" path="res://_Game/Data/Combat/da_combat.tres" id="12_cfg"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/da_combat_theme.tres" id="13_theme"]
+[ext_resource type="Resource" uid="uid://n1w5gwoqgxyg" path="res://_Game/Data/Combat/da_character_chef.tres" id="14_chr"]
+[ext_resource type="Resource" uid="uid://cjkly4g7hcgek" path="res://_Game/Data/Combat/Enemies/da_enemy_chef_boss.tres" id="15_enemy"]
+[ext_resource type="Texture2D" uid="uid://dp1axmiaf05v" path="res://_Game/Art/Timer/Timer_BG.png" id="16_6aftg"]
+[ext_resource type="Script" uid="uid://cvs6hff5f7p1b" path="res://_Game/UI/HUD/combat_drag_overlay.gd" id="16_dragline"]
+[ext_resource type="Texture2D" uid="uid://cr2wulkxj7u1q" path="res://_Game/Art/Timer/Timer_Button_01.png" id="16_ma5rc"]
+[ext_resource type="Texture2D" uid="uid://ua5cnakii67n" path="res://_Game/Art/Timer/Timer_Button_02.png" id="17_tejdu"]
+[ext_resource type="Texture2D" uid="uid://cdhoab45lqjvy" path="res://_Game/Art/Timer/Timer_Frame.png" id="18_e04pt"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/UI/da_window_burn.tres" id="18_win_burn"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/UI/da_window_messages.tres" id="19_win_msg"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/UI/da_window_game_over.tres" id="20_win_over"]
+[ext_resource type="Script" uid="uid://b4spshf6r1q0y" path="res://_Game/UI/Widgets/spice_shelf.gd" id="21_shelf"]
+[ext_resource type="Script" uid="uid://dq8jmd8qbib80" path="res://_Game/UI/Widgets/scoring_dim.gd" id="22_dim"]
+[ext_resource type="Script" uid="uid://cs66pgn72mjyt" path="res://_Game/UI/HUD/combat_score_labels.gd" id="22_score_labels"]
+[ext_resource type="Script" uid="uid://br68diw7cdxlx" path="res://_Game/UI/Widgets/star_particles.gd" id="22_star_particles"]
+[ext_resource type="Script" uid="uid://duahuvm3doi4g" path="res://_Game/UI/Widgets/scene_transition.gd" id="22_transition"]
+[ext_resource type="Material" uid="uid://ckoxqwbrui0xq" path="res://_Game/Data/Combat/FX/da_transition.tres" id="22_transition_mat"]
+[ext_resource type="Texture2D" uid="uid://v6i4bbrua8wr" path="res://_Game/Art/Item/T_Item_Desk.png" id="23_i5tko"]
+[ext_resource type="Texture2D" uid="uid://csbjwkhtgdv4c" path="res://_Game/Art/Item/T_Item_Fridge_Enemy.png" id="24_wrne2"]
+[ext_resource type="Texture2D" uid="uid://c6n3lerwoe0rg" path="res://_Game/Art/Item/T_Item_Board_Enemy.png" id="27_6aftg"]
+[ext_resource type="Texture2D" uid="uid://rgd8dlivndv3" path="res://_Game/Art/Chef/Chef_Moustache.png" id="27_6umdy"]
+[ext_resource type="Texture2D" uid="uid://jn2gxhb82evf" path="res://_Game/Art/Fridge/Icon_Fridge_Hero.png" id="30_fernp"]
+[ext_resource type="Script" uid="uid://cn8v3qy7l2wpr" path="res://_Game/UI/Widgets/hud_start_countdown.gd" id="31_countdown"]
+[ext_resource type="Texture2D" uid="uid://cr8ifla02cis3" path="res://_Game/Art/Tools/Close/Tools_Bag_Closed.png" id="34_l7pfo"]
+[ext_resource type="Texture2D" uid="uid://d2pskh2yfxs6u" path="res://_Game/Art/Tools/Close/Tongs_Closed.png" id="35_tc67d"]
+[ext_resource type="Texture2D" uid="uid://b2dvue56r8wr2" path="res://_Game/Art/Tools/Close/Tools_Bag_Close_Rope.png" id="36_3vu16"]
+[ext_resource type="Texture2D" uid="uid://buugv0e8x1edn" path="res://_Game/Art/Tools/Tools_Bag.png" id="39_qkx7i"]
+[ext_resource type="Texture2D" uid="uid://cw307kkgpmtqv" path="res://_Game/Art/Fridge/Fridge_Storage.png" id="42_yt0l7"]
+[ext_resource type="Script" uid="uid://b77nd32a88ye3" path="res://_Game/UI/Widgets/hud_tool_button.gd" id="43_toolbtn"]
+[ext_resource type="Script" uid="uid://dhmwcjiwqm683" path="res://_Game/UI/Widgets/hud_tool_storage.gd" id="44_toolstore"]
+[ext_resource type="Script" uid="uid://djtcp65hlde3n" path="res://_Game/UI/Widgets/hud_tool_toggle_button.gd" id="45_tooltoggle"]
+[ext_resource type="Script" uid="uid://bueq70jeyngy2" path="res://_Game/UI/Widgets/hud_tool_confirm_button.gd" id="46_toolconfirm"]
+[ext_resource type="Script" uid="uid://dj5w2mosy2akl" path="res://_Game/Data/Combat/UI/tool_icon.gd" id="47_toolicon"]
+[ext_resource type="Resource" uid="uid://bakmvc3nsulns" path="res://_Game/Data/Combat/Tools/da_tool_cleaver.tres" id="48_cleaver"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Tools/da_tool_burner.tres" id="49_burner"]
+[ext_resource type="Resource" uid="uid://e8ed51lajmeq" path="res://_Game/Data/Combat/Tools/da_tool_rod.tres" id="50_rod"]
+[ext_resource type="Resource" uid="uid://clbi065bixdy1" path="res://_Game/Data/Combat/Tools/da_tool_tongs.tres" id="51_tongs"]
+[ext_resource type="Texture2D" uid="uid://bt265wipl2m7p" path="res://_Game/Art/Tools/Cleaver.png" id="52_cleaver_tex"]
+[ext_resource type="Texture2D" uid="uid://ckflijmedxceq" path="res://_Game/Art/Tools/Burner.png" id="53_burner_tex"]
+[ext_resource type="Texture2D" uid="uid://diosym6pgwhd2" path="res://_Game/Art/Tools/Eye_Open.png" id="53_py07p"]
+[ext_resource type="Texture2D" uid="uid://bc35g722hunxp" path="res://_Game/Art/Tools/Eye_Closed.png" id="54_dj5x7"]
+[ext_resource type="Texture2D" uid="uid://cq3bw5am3s206" path="res://_Game/Art/Tools/Fishing_Rod.png" id="54_rod_tex"]
+[ext_resource type="Texture2D" uid="uid://dep5k1ksrj48b" path="res://_Game/Art/Tools/Tongs.png" id="55_tongs_tex"]
+[ext_resource type="Texture2D" uid="uid://b6ki14mqkq4oo" path="res://_Game/Art/Tools/Button_Skip.png" id="56_0cnah"]
+[ext_resource type="Texture2D" uid="uid://uldkhqtfw7ea" path="res://_Game/Art/Tools/Close/Cleaver_Closed.png" id="56_cleaver_closed"]
+[ext_resource type="Texture2D" uid="uid://d08p6nv23ti2q" path="res://_Game/Art/Tools/Button_Choose.png" id="57_8d3iy"]
+[ext_resource type="Texture2D" uid="uid://dlfrsvyewx2vh" path="res://_Game/Art/Tools/Close/Burner_Closed.png" id="57_burner_closed"]
+[ext_resource type="Texture2D" uid="uid://cqfulpq4i7nit" path="res://_Game/Art/Tools/Close/Fishing_Rod_Closed.png" id="58_rod_closed"]
+[ext_resource type="Texture2D" uid="uid://dwqxf8t1l8yg2" path="res://_Game/Art/Tools/Tools_Bag_Pocket.png" id="59_bag_pocket"]
+[ext_resource type="Script" uid="uid://ciauyxhougbu4" path="res://_Game/UI/Widgets/hover_tooltip.gd" id="60_tooltip"]
+[ext_resource type="Script" uid="uid://dj7r6csjnydqp" path="res://_Game/UI/Widgets/burn_overlay.gd" id="61_burnoverlay"]
+[ext_resource type="Script" uid="uid://b4afi4rgjcimn" path="res://_Game/UI/Widgets/grayscale_overlay.gd" id="61_grayscale"]
+[ext_resource type="Material" path="res://_Game/Data/Combat/FX/da_grayscale.tres" id="62_grayscale_mat"]
+[ext_resource type="Texture2D" uid="uid://cvnafhtfndkdp" path="res://_Game/Tooltip/Description_Sheet_01.png" id="67_s200b"]
+[ext_resource type="Texture2D" uid="uid://b0ev7y3fda4ds" path="res://_Game/Tooltip/Description_Sheet_02.png" id="68_0vtbl"]
+[ext_resource type="Script" uid="uid://b5d4s5ouqk30y" path="res://_Game/UI/HUD/reward_screen.gd" id="69_reward"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/UI/da_window_reward.tres" id="70_win_reward"]
+[ext_resource type="Script" uid="uid://dppsc61xv1ax7" path="res://_Game/UI/HUD/end_screen.gd" id="71_end"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/UI/da_window_end.tres" id="72_win_end"]
+[ext_resource type="PackedScene" uid="uid://dn6ykwsq1e4hb" path="res://_Game/UI/Widgets/sound_panel.tscn" id="73_sound"]
+
+[sub_resource type="Resource" id="ToolIcon_button_cleaver"]
+script = ExtResource("47_toolicon")
+tool_model = ExtResource("48_cleaver")
+texture = ExtResource("56_cleaver_closed")
+fallback_size = Vector2(48, 48)
+
+[sub_resource type="Resource" id="ToolIcon_button_burner"]
+script = ExtResource("47_toolicon")
+tool_model = ExtResource("49_burner")
+texture = ExtResource("57_burner_closed")
+fallback_size = Vector2(48, 48)
+
+[sub_resource type="Resource" id="ToolIcon_button_rod"]
+script = ExtResource("47_toolicon")
+tool_model = ExtResource("50_rod")
+texture = ExtResource("58_rod_closed")
+fallback_size = Vector2(48, 48)
+
+[sub_resource type="Resource" id="ToolIcon_button_tongs"]
+script = ExtResource("47_toolicon")
+tool_model = ExtResource("51_tongs")
+texture = ExtResource("35_tc67d")
+fallback_size = Vector2(48, 48)
+
+[sub_resource type="Resource" id="ToolIcon_slot_cleaver"]
+script = ExtResource("47_toolicon")
+tool_model = ExtResource("48_cleaver")
+texture = ExtResource("52_cleaver_tex")
+offset = Vector2(-180.99, 39.62)
+icon_scale = Vector2(0.25, 0.25)
+rotation_degrees = 0.5999999999999943
+fallback_size = Vector2(104, 104)
+
+[sub_resource type="Resource" id="ToolIcon_slot_burner"]
+script = ExtResource("47_toolicon")
+tool_model = ExtResource("49_burner")
+texture = ExtResource("53_burner_tex")
+offset = Vector2(-24.205, 60.045)
+icon_scale = Vector2(0.25, 0.25)
+fallback_size = Vector2(104, 104)
+
+[sub_resource type="Resource" id="ToolIcon_slot_rod"]
+script = ExtResource("47_toolicon")
+tool_model = ExtResource("50_rod")
+texture = ExtResource("54_rod_tex")
+offset = Vector2(23.635, -44.7)
+icon_scale = Vector2(0.25, 0.25)
+fallback_size = Vector2(104, 104)
+
+[sub_resource type="Resource" id="ToolIcon_slot_tongs"]
+script = ExtResource("47_toolicon")
+tool_model = ExtResource("51_tongs")
+texture = ExtResource("55_tongs_tex")
+offset = Vector2(158.965, 28.995)
+icon_scale = Vector2(0.25, 0.25)
+fallback_size = Vector2(104, 104)
+
+[node name="Combat" type="Node2D" unique_id=1188476591]
+script = ExtResource("1_gm")
+config = ExtResource("12_cfg")
+theme = ExtResource("13_theme")
+character = ExtResource("14_chr")
+enemy = ExtResource("15_enemy")
+
+[node name="Background" type="Node2D" parent="." unique_id=2138018013]
+z_index = -10
+script = ExtResource("4_bg")
+texture = ExtResource("7_c75dt")
+
+[node name="Table" type="Sprite2D" parent="." unique_id=2099142565]
+position = Vector2(574, 450.75)
+scale = Vector2(1.3601695, 1.3623482)
+texture = ExtResource("7_kpamm")
+
+[node name="Zones" type="Node2D" parent="." unique_id=1941502747]
+
+[node name="Panel" type="Sprite2D" parent="Zones" unique_id=1988701202]
+position = Vector2(573.49994, 439.00003)
+scale = Vector2(0.38009787, 4.9249997)
+texture = ExtResource("11_tlpkc")
+region_rect = Rect2(1.93, 0, 0, 0)
+
+[node name="TItemTable" type="Sprite2D" parent="Zones" unique_id=866271002]
+position = Vector2(573.00006, 451.5)
+scale = Vector2(0.28750002, 0.2909836)
+texture = ExtResource("8_5ttp3")
+
+[node name="PlayerArea" type="Node2D" parent="Zones" unique_id=1048381840]
+position = Vector2(237, 282)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("3_zone")
+size = Vector2(318.665, 450)
+caption = "Player area"
+fill_color = Color(0.2, 0.5019608, 0.2784314, 0)
+border_color = Color(0.34901962, 0.8, 0.4509804, 0)
+caption_color = Color(0.5019608, 0.8509804, 0.54901963, 0)
+
+[node name="PourZone" type="Node2D" parent="Zones" unique_id=1955771471]
+position = Vector2(475, 282)
+scale = Vector2(1.01, 0.75)
+script = ExtResource("3_zone")
+kind = 1
+size = Vector2(194.26, 451.74)
+caption = "Pour zone"
+fill_color = Color(0, 0.7019608, 0.6627451, 0)
+border_color = Color(0.34901962, 0.8509804, 0.8, 0)
+border_width = 0.075
+caption_color = Color(0.5019608, 0.8509804, 0.8, 0)
+caption_font_size = 13
+
+[node name="EnemyArea" type="Node2D" parent="Zones" unique_id=2026171570]
+position = Vector2(672, 283.00003)
+scale = Vector2(0.747, 0.75)
+script = ExtResource("3_zone")
+kind = 2
+size = Vector2(318.115, 450)
+caption = "Enemy area"
+fill_color = Color(0.6784314, 0.2, 0.2, 0)
+border_color = Color(0.9019608, 0.3019608, 0.3019608, 0)
+caption_color = Color(0.9019608, 0.4509804, 0.4509804, 0)
+
+[node name="BoundsZone" type="Node2D" parent="Zones" unique_id=1306626776]
+position = Vector2(236, 282)
+script = ExtResource("3_zone")
+kind = 3
+size = Vector2(673.685, 338)
+fill_color = Color(0, 0, 0, 0)
+border_color = Color(0.2509804, 0.34901962, 0.8509804, 0)
+border_width = 3.0
+caption_color = Color(0.92941177, 0.6313726, 0.2784314, 0)
+
+[node name="ScoringDim" type="Node2D" parent="." unique_id=1477203514]
+z_index = 91
+script = ExtResource("22_dim")
+
+[node name="Arena" type="Node2D" parent="." unique_id=563071850]
+
+[node name="DragOverlay" type="Node2D" parent="." unique_id=296656461]
+z_index = 95
+script = ExtResource("16_dragline")
+
+[node name="Hud" type="Node2D" parent="." unique_id=662280411]
+z_index = 100
+script = ExtResource("2_hud")
+burn_banner_config = ExtResource("18_win_burn")
+messages_config = ExtResource("19_win_msg")
+game_over_config = ExtResource("20_win_over")
+
+[node name="Timer" type="Node2D" parent="Hud" unique_id=1527660140]
+z_index = 10
+position = Vector2(561, 103)
+script = ExtResource("7_timer")
+
+[node name="TimerButton01" type="Sprite2D" parent="Hud/Timer" unique_id=1048659534]
+position = Vector2(-2, -59)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("16_ma5rc")
+script = ExtResource("7_timer_button")
+pressed_offset = Vector2(0, -4)
+
+[node name="TimerButton02" type="Sprite2D" parent="Hud/Timer" unique_id=1808918770]
+position = Vector2(69, -43)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_tejdu")
+script = ExtResource("7_timer_button")
+pressed_offset = Vector2(-8, 5)
+
+[node name="TimerBg" type="Sprite2D" parent="Hud/Timer" unique_id=1435167558]
+position = Vector2(0, 14)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("16_6aftg")
+
+[node name="TimerRing" type="Node2D" parent="Hud/Timer" unique_id=1527660138]
+position = Vector2(-2, 9)
+script = ExtResource("7_timer_ring")
+radius = 68.74
+arc_width = 30.4
+track_color = Color(0.12156863, 0.12156863, 0.14117648, 1)
+
+[node name="TimerFrame" type="Sprite2D" parent="Hud/Timer" unique_id=934199004]
+position = Vector2(-1, -1)
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("18_e04pt")
+
+[node name="TimerDigits" type="Node2D" parent="Hud/Timer" unique_id=1527660139]
+script = ExtResource("7_timer_digits")
+font_size = 87
+outline_size = 5
+active_font_size = 40
+editor_preview_seconds = 10
+
+[node name="RoundLabel" type="Node2D" parent="Hud" unique_id=1622095443]
+position = Vector2(561, 215)
+script = ExtResource("7_round_label")
+
+[node name="PlayerPortrait" type="Node2D" parent="Hud" unique_id=640981673]
+z_index = 11
+position = Vector2(280, 111)
+script = ExtResource("5_portrait")
+texture = ExtResource("5_player_art")
+texture_size = 363.695
+portrait_scale = 1.0
+
+[node name="PlayerName" type="Node2D" parent="Hud" unique_id=640981674]
+z_index = 12
+position = Vector2(368, 269)
+script = ExtResource("5_name")
+font_size = 32
+jitter_amount = 0.22
+jitter_speed = 6.5
+editor_preview_text = "Bob"
+
+[node name="PlayerStars" type="Node2D" parent="Hud" unique_id=1046747083]
+position = Vector2(352, 64.735)
+script = ExtResource("6_stars")
+star_radius = 17.0
+star_spacing = 42.0
+stars_per_row = 3
+row_spacing = 40.0
+editor_preview_stars = 7
+
+[node name="EnemyStars" type="Node2D" parent="Hud" unique_id=1792930791]
+position = Vector2(678, 63)
+script = ExtResource("6_stars")
+enemy = true
+star_radius = 17.0
+star_spacing = 42.0
+stars_per_row = 3
+row_spacing = 40.0
+
+[node name="EnemyPortrait" type="Node2D" parent="Hud" unique_id=1383754194]
+z_index = 11
+position = Vector2(863.64, 104.525)
+script = ExtResource("5_portrait")
+enemy = true
+texture = ExtResource("27_6umdy")
+texture_size = 254.87
+portrait_scale = 1.5
+
+[node name="EnemyName" type="Node2D" parent="Hud" unique_id=1383754195]
+z_index = 12
+position = Vector2(776, 266)
+script = ExtResource("5_name")
+enemy = true
+font_size = 32
+jitter_amount = 0.22
+jitter_speed = 6.5
+editor_preview_text = "Chef BOSS"
+
+[node name="BagButton" type="Node2D" parent="Hud" unique_id=333372905]
+position = Vector2(122, 208)
+script = ExtResource("10_bag_btn")
+texture = ExtResource("30_fernp")
+texture_scale = Vector2(0.22, 0.22)
+halo_padding = 1.0
+radius = 46.78
+
+[node name="TItemDesk" type="Sprite2D" parent="Hud" unique_id=639888210]
+position = Vector2(121.5, 106.99999)
+scale = Vector2(0.2879656, 0.28767115)
+texture = ExtResource("23_i5tko")
+
+[node name="TItemFridgeEnemy" type="Sprite2D" parent="Hud" unique_id=983671061]
+position = Vector2(1033.5, 142)
+scale = Vector2(0.28593987, 0.2908654)
+texture = ExtResource("24_wrne2")
+
+[node name="ToolButton" type="Node2D" parent="Hud" unique_id=1741220301]
+z_index = 12
+position = Vector2(118, 595)
+script = ExtResource("43_toolbtn")
+base_texture = ExtResource("34_l7pfo")
+base_scale = Vector2(0.3, 0.3)
+tool_icons = Array[ExtResource("47_toolicon")]([SubResource("ToolIcon_button_cleaver"), SubResource("ToolIcon_button_burner"), SubResource("ToolIcon_button_rod"), SubResource("ToolIcon_button_tongs")])
+tool_offset = Vector2(5.205, -7.425)
+tool_box = Vector2(89.985, 48)
+accessory_texture = ExtResource("36_3vu16")
+accessory_scale = Vector2(0.3, 0.3)
+accessory_offset = Vector2(-24.05, -2.24)
+fallback_size = Vector2(72, 72)
+editor_preview_icon = -1
+
+[node name="ToolStorage" type="Node2D" parent="Hud" unique_id=1741220302]
+z_index = 12
+position = Vector2(536, 317)
+script = ExtResource("44_toolstore")
+panel_size = Vector2(700, 347)
+background_texture = ExtResource("39_qkx7i")
+slots = Array[ExtResource("47_toolicon")]([SubResource("ToolIcon_slot_cleaver"), SubResource("ToolIcon_slot_burner"), SubResource("ToolIcon_slot_rod"), SubResource("ToolIcon_slot_tongs")])
+accessory_texture = ExtResource("59_bag_pocket")
+accessory_scale = Vector2(0.25, 0.25)
+accessory_offset = Vector2(80.79, 113.985)
+title_offset = Vector2(-92.28, -119.615)
+title_font_size = 25
+jitter_amount = 0.44
+jitter_speed = 6.0
+glow_color = Color(0.81564033, 0.6558321, 0, 0.7058824)
+glow_padding = 5.0
+glow_steps = 48
+
+[node name="ToolStorageToggle" type="Node2D" parent="Hud" unique_id=1741220303]
+z_index = 12
+position = Vector2(125.23, 327.725)
+script = ExtResource("45_tooltoggle")
+hide_texture = ExtResource("53_py07p")
+show_texture = ExtResource("54_dj5x7")
+texture_scale = Vector2(0.3, 0.3)
+
+[node name="ToolConfirm" type="Node2D" parent="Hud" unique_id=1741220304]
+z_index = 12
+position = Vector2(600, 550)
+script = ExtResource("46_toolconfirm")
+skip_texture = ExtResource("56_0cnah")
+continue_texture = ExtResource("57_8d3iy")
+texture_scale = Vector2(0.3, 0.3)
+pulse_tint = Color(1.2499994, 1.2181187, 0.620764, 1)
+
+[node name="StartCountdown" type="Node2D" parent="Hud" unique_id=913472066]
+z_index = 15
+position = Vector2(576, 324)
+script = ExtResource("31_countdown")
+
+[node name="PlayerBasket" type="Node2D" parent="." unique_id=1823448362 node_paths=PackedStringArray("fill_point")]
+z_index = 90
+position = Vector2(39, 295)
+scale = Vector2(1.18, 0.905)
+script = ExtResource("11_container")
+panel_size = Vector2(138.76, 262.455)
+title = "Player basket"
+fill_point = NodePath("FillPoint")
+fill_color = Color(0.41960785, 0.27058825, 0.14117648, 0)
+border_color = Color(0.7490196, 0.54901963, 0.2, 1)
+title_color = Color(0.9490196, 0.9019608, 0.8, 0)
+
+[node name="FillPoint" type="Node2D" parent="PlayerBasket" unique_id=402340964]
+position = Vector2(68.64408, -103.86739)
+script = ExtResource("11_fill_point")
+
+[node name="TItemBoardEnemy" type="Sprite2D" parent="PlayerBasket/FillPoint" unique_id=213674045]
+position = Vector2(4.2372737, 229.83427)
+scale = Vector2(0.23600087, 0.24340297)
+texture = ExtResource("27_6aftg")
+
+[node name="EnemyBasket" type="Node2D" parent="." unique_id=1919117657 node_paths=PackedStringArray("fill_point")]
+z_index = 90
+position = Vector2(952, 294)
+script = ExtResource("11_container")
+panel_size = Vector2(164.225, 321.245)
+title = "Enemy basket"
+fill_point = NodePath("FillPoint")
+fill_color = Color(0.41960785, 0.27058825, 0.14117648, 0)
+border_color = Color(0.7490196, 0.54901963, 0.2, 0)
+title_color = Color(0.9490196, 0.9019608, 0.8, 0)
+
+[node name="FillPoint" type="Node2D" parent="EnemyBasket" unique_id=1934308642]
+position = Vector2(82, -152)
+script = ExtResource("11_fill_point")
+
+[node name="TItemBoardEnemy2" type="Sprite2D" parent="." unique_id=410522795]
+position = Vector2(1032.5, 452.50003)
+scale = Vector2(0.28639242, 0.2910839)
+texture = ExtResource("27_6aftg")
+
+[node name="SpiceShelf" type="Node2D" parent="." unique_id=1700368267]
+position = Vector2(36, -183)
+script = ExtResource("21_shelf")
+area_size = Vector2(170.615, 301.06)
+drop_point = Vector2(90, 67.92)
+z_base = 69
+left_wall_height = 32.0
+right_wall_height = 37.0
+
+[node name="Bag" type="Node2D" parent="." unique_id=1706385988]
+visible = false
+z_index = 120
+position = Vector2(139, 1)
+script = ExtResource("11_bag_panel")
+panel_size = Vector2(900, 673.61)
+title = "Player bag"
+main_sections = Array[Rect2]([Rect2(150, 130, 433.3, 119.65), Rect2(150, 259.21, 433.3, 111.99), Rect2(150, 381.435, 433.3, 110.755), Rect2(150, 502.035, 433, 143.855)])
+reserve_section = Rect2(150, 130, 433.3, 516.155)
+texture = ExtResource("42_yt0l7")
+open_offset = Vector2(0, 900)
+open_transition = 0
+fill_color = Color(0, 0, 0, 0)
+border_color = Color(0.8509804, 0.6509804, 0.34901962, 0)
+title_color = Color(0, 0, 0, 0)
+title_font_size = 1
+
+[node name="StarParticles" type="Node2D" parent="." unique_id=1573824960]
+z_index = 129
+script = ExtResource("22_star_particles")
+
+[node name="ScoreLabels" type="Node2D" parent="." unique_id=1198446627]
+z_index = 130
+script = ExtResource("22_score_labels")
+
+[node name="Tooltip" type="Node2D" parent="." unique_id=238588060]
+z_index = 135
+script = ExtResource("60_tooltip")
+window_small = ExtResource("67_s200b")
+window_large = ExtResource("68_0vtbl")
+combat_config = ExtResource("12_cfg")
+
+[node name="BurnOverlay" type="Node2D" parent="." unique_id=1622095442]
+z_index = 111
+script = ExtResource("61_burnoverlay")
+skip_texture = ExtResource("56_0cnah")
+
+[node name="Reward" type="Node2D" parent="." unique_id=1622095440 node_paths=PackedStringArray("fridge", "spice_shelf", "tool_bag")]
+visible = false
+z_index = 138
+script = ExtResource("69_reward")
+config = ExtResource("70_win_reward")
+fridge = NodePath("../Hud/BagButton")
+spice_shelf = NodePath("../SpiceShelf")
+tool_bag = NodePath("../Hud/ToolButton")
+
+[node name="EndScreen" type="Node2D" parent="." unique_id=1622095441]
+visible = false
+z_index = 139
+script = ExtResource("71_end")
+config = ExtResource("72_win_end")
+
+[node name="Grayscale" type="BackBufferCopy" parent="." unique_id=1622095439]
+z_index = 105
+copy_mode = 0
+script = ExtResource("61_grayscale")
+overlay_material = ExtResource("62_grayscale_mat")
+
+[node name="SceneTransition" type="ColorRect" parent="." unique_id=1622095438]
+z_index = 140
+material = ExtResource("22_transition_mat")
+offset_right = 2980.0
+offset_bottom = 1461.0
+mouse_filter = 2
+script = ExtResource("22_transition")
+metadata/_edit_lock_ = true
+
+[node name="SoundPanel" parent="." unique_id=250050772 instance=ExtResource("73_sound")]

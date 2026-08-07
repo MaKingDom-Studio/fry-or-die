@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="RewardConfig" format=3]
+
+[ext_resource type="Script" path="res://_Game/Data/Combat/UI/reward_config.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://cr76wx7m8473b" path="res://scripts/models/ingredient_model.gd" id="2_ing"]
+[ext_resource type="Script" uid="uid://bkpum1t1v5air" path="res://scripts/models/spice_model.gd" id="3_spice"]
+[ext_resource type="Resource" uid="uid://b82teadws1535" path="res://_Game/Data/Combat/Ingredients/da_ing_beet.tres" id="i_beet"]
+[ext_resource type="Resource" uid="uid://lw7vaxusd41x" path="res://_Game/Data/Combat/Ingredients/da_ing_carrot.tres" id="i_carrot"]
+[ext_resource type="Resource" uid="uid://bcndtgb4bkv3n" path="res://_Game/Data/Combat/Ingredients/da_ing_meat.tres" id="i_meat"]
+[ext_resource type="Resource" uid="uid://b320oxj7bdecg" path="res://_Game/Data/Combat/Ingredients/da_ing_milk.tres" id="i_milk"]
+[ext_resource type="Resource" uid="uid://bxywbikkpway6" path="res://_Game/Data/Combat/Ingredients/da_ing_tuna.tres" id="i_tuna"]
+[ext_resource type="Resource" uid="uid://tjejbe6dn1i8" path="res://_Game/Data/Combat/Ingredients/da_ing_cheese.tres" id="i_cheese"]
+[ext_resource type="Resource" uid="uid://c31djjmou5oy6" path="res://_Game/Data/Combat/Ingredients/da_ing_lemon.tres" id="i_lemon"]
+[ext_resource type="Resource" uid="uid://bhui8tb26bm4k" path="res://_Game/Data/Combat/Ingredients/da_ing_pea.tres" id="i_pea"]
+[ext_resource type="Resource" uid="uid://cccetbfyu7a4b" path="res://_Game/Data/Combat/Spices/da_spice_pepper.tres" id="s_pepper"]
+[ext_resource type="Resource" uid="uid://b36c06kyiwm1h" path="res://_Game/Data/Combat/Spices/da_spice_oil.tres" id="s_oil"]
+[ext_resource type="Resource" uid="uid://cohgh4fstshsm" path="res://_Game/Data/Combat/Spices/da_spice_wine.tres" id="s_wine"]
+[ext_resource type="Resource" uid="uid://c6bc8x4hkh7io" path="res://_Game/Data/Combat/Spices/da_spice_mustard.tres" id="s_mustard"]
+[ext_resource type="Resource" uid="uid://b70kpnpjdwkxb" path="res://_Game/Data/Combat/Spices/da_spice_mint.tres" id="s_mint"]
+[ext_resource type="Resource" uid="uid://b8p7xuyk4bpx3" path="res://_Game/Data/Combat/Spices/da_spice_tough_pepper.tres" id="s_tough_pepper"]
+[ext_resource type="Texture2D" uid="uid://n254446ggj3y" path="res://_Game/Art/Victory_Defeat/Victory.png" id="t_victory"]
+[ext_resource type="Texture2D" uid="uid://laigape0cffg" path="res://_Game/Art/Victory_Defeat/Defeat.png" id="t_defeat"]
+[ext_resource type="Texture2D" uid="uid://l2q5kclbahx6" path="res://_Game/Art/Victory_Defeat/Button_Try_Again.png" id="t_try_again"]
+[ext_resource type="Texture2D" uid="uid://txwxcgte0x75" path="res://_Game/Art/Reward/Check.png" id="t_check"]
+[ext_resource type="Texture2D" uid="uid://buvttb5uyfqef" path="res://_Game/Art/Reward/Reward_Sheet_01.png" id="t_sheet_01"]
+[ext_resource type="Texture2D" uid="uid://cgtlkbx5yfidm" path="res://_Game/Art/Reward/Reward_Sheet_02.png" id="t_sheet_02"]
+[ext_resource type="Texture2D" uid="uid://b6ki14mqkq4oo" path="res://_Game/Art/Tools/Button_Skip.png" id="t_skip"]
+
+[resource]
+script = ExtResource("1_script")
+positive_chance = 0.75
+spice_chance = 0.25
+positive_pool = Array[ExtResource("2_ing")]([ExtResource("i_beet"), ExtResource("i_carrot"), ExtResource("i_meat"), ExtResource("i_milk"), ExtResource("i_tuna")])
+effect_pool = Array[ExtResource("2_ing")]([ExtResource("i_cheese"), ExtResource("i_lemon"), ExtResource("i_pea")])
+spice_pool = Array[ExtResource("3_spice")]([ExtResource("s_pepper"), ExtResource("s_oil"), ExtResource("s_wine"), ExtResource("s_mustard"), ExtResource("s_mint")])
+miniboss_spice = ExtResource("s_tough_pepper")
+victory_texture = ExtResource("t_victory")
+victory_seconds = 2.0
+defeat_texture = ExtResource("t_defeat")
+defeat_rect = Rect2(307, 94, 537, 460)
+try_again_texture = ExtResource("t_try_again")
+try_again_rect = Rect2(476, 500, 200, 98)
+try_again_delay = 0.8
+check_texture = ExtResource("t_check")
+sheet_left_texture = ExtResource("t_sheet_01")
+sheet_right_texture = ExtResource("t_sheet_02")
+skip_texture = ExtResource("t_skip")

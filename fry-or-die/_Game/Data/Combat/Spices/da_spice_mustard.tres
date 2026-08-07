@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpiceMustard" format=3 uid="uid://c6bc8x4hkh7io"]
+
+[ext_resource type="Script" uid="uid://dokyqprp3yw7" path="res://scripts/models/spices/spice_mustard.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://4wtsqjjigpe" path="res://_Game/Art/Spices/Mustard.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"mustard"
+display_name = "Mustard"
+description = "Negative ingredients on the enemy field are 50 pct stronger."
+texture = ExtResource("2_tex")
+color = Color(0.8, 0.65, 0.2, 1)
+visual_scale = 0.4
+z_order = 20
+price = 6

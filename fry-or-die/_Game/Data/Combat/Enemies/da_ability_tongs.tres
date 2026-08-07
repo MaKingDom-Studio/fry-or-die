@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="TongsAbility" format=3]
+
+[ext_resource type="Script" path="res://scripts/models/tongs_ability.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bqia8s3qkidtd" path="res://_Game/Art/Item/Tongs_Open.png" id="2_open"]
+[ext_resource type="Texture2D" uid="uid://b9m4oyerq1ua1" path="res://_Game/Art/Item/Tongs_Close.png" id="3_close"]
+
+[resource]
+script = ExtResource("1_script")
+steal_count = 2
+open_texture = ExtResource("2_open")
+close_texture = ExtResource("3_close")
+image_scale = 0.13
+grab_anchor = Vector2(0.295, 0.245)
+draw_z_index = 96
+carried_z_index = 94
+entry_offset = Vector2(300, 280)
+approach_duration = 0.8
+carry_duration = 0.75
+retreat_duration = 0.6
+path_arc = 120.0
+path_arc_random = 80.0
+wobble_amplitude = 20.0
+wobble_speed = 2.5
+tilt = 0.14
+grab_pause = 0.22
+release_pause = 0.28
+drop_height = 70.0

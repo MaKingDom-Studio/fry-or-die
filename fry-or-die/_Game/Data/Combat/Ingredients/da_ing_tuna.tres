@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="IngredientModel" format=3 uid="uid://bxywbikkpway6"]
+
+[ext_resource type="Script" uid="uid://cr76wx7m8473b" path="res://scripts/models/ingredient_model.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://pqkn0io1wruf" path="res://_Game/Art/Ingredients/Ing_Tuna.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://ctxof1va0ss1w" path="res://_Game/Art/Ingredients/Ing_Tuna_Shadow.png" id="3_shadow"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"tuna"
+display_name = "Tuna"
+size = 2
+texture = ExtResource("2_tex")
+weight = 10
+multiplier = 2.0
+price = 10
+shop_weight = 0.5
+shadow_texture = ExtResource("3_shadow")
+color = Color(0.72, 0.36, 0.34, 1)
+radius = 46.0

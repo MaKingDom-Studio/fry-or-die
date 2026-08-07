@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="EnemyModel" format=3 uid="uid://dq7v3nxkm82ta"]
+
+[ext_resource type="Script" uid="uid://bmknppjabmiv4" path="res://_Game/Data/Combat/portrait_style.gd" id="1_portrait"]
+[ext_resource type="Script" uid="uid://xo362ml61oo5" path="res://scripts/models/enemy_model.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://w3xbjulk4k10" path="res://scripts/models/enemy_move.gd" id="2_move"]
+[ext_resource type="Script" uid="uid://cq8n2vg7rkxm4" path="res://scripts/models/enemy_spawn_group.gd" id="3_group"]
+[ext_resource type="Script" uid="uid://cr76wx7m8473b" path="res://scripts/models/ingredient_model.gd" id="4_ing"]
+[ext_resource type="Texture2D" uid="uid://rgd8dlivndv3" path="res://_Game/Art/Chef/Chef_Moustache.png" id="art_chef"]
+[ext_resource type="Resource" uid="uid://vo8lf72fma28" path="res://_Game/Data/Combat/Ingredients/da_ing_brown_egg.tres" id="i_brown_egg"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Ingredients/da_ing_chile_pepper.tres" id="i_chile_pepper"]
+[ext_resource type="Resource" uid="uid://co4jpof6j1v3u" path="res://_Game/Data/Combat/Ingredients/da_ing_garlic.tres" id="i_garlic"]
+[ext_resource type="Resource" uid="uid://bcndtgb4bkv3n" path="res://_Game/Data/Combat/Ingredients/da_ing_meat.tres" id="i_meat"]
+[ext_resource type="Resource" uid="uid://dwpyqtxyty6kj" path="res://_Game/Data/Combat/Ingredients/da_ing_shiitake.tres" id="i_shiitake"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Ingredients/da_ing_turner.tres" id="i_turner"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Ingredients/da_ing_white_egg.tres" id="i_white_egg"]
+
+[sub_resource type="Resource" id="G1_meat"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_meat")
+count = 2
+
+[sub_resource type="Resource" id="Move_1"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G1_meat")])
+
+[sub_resource type="Resource" id="G2_turner_center"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_turner")
+count = 3
+placement = 2
+
+[sub_resource type="Resource" id="G2_random"]
+script = ExtResource("3_group")
+random_points = 6
+
+[sub_resource type="Resource" id="Move_2"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G2_turner_center"), SubResource("G2_random")])
+
+[sub_resource type="Resource" id="G3_pepper_player"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_chile_pepper")
+count = 2
+placement = 1
+
+[sub_resource type="Resource" id="G3_pepper_enemy"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_chile_pepper")
+count = 2
+
+[sub_resource type="Resource" id="Move_3"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G3_pepper_player"), SubResource("G3_pepper_enemy")])
+
+[sub_resource type="Resource" id="G4_random"]
+script = ExtResource("3_group")
+random_points = 20
+random_points_variance = 5
+
+[sub_resource type="Resource" id="Move_4"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G4_random")])
+
+[sub_resource type="Resource" id="Portrait_enemy"]
+script = ExtResource("1_portrait")
+texture = ExtResource("art_chef")
+scale = 1.5
+name_color = Color(0.95, 0.6, 0.55, 1)
+
+[resource]
+script = ExtResource("1_script")
+id = &"moustache3_cook"
+display_name = "Moustache"
+portrait = SubResource("Portrait_enemy")
+star_target = 6
+inventory = Array[ExtResource("4_ing")]([ExtResource("i_chile_pepper"), ExtResource("i_shiitake"), ExtResource("i_meat"), ExtResource("i_turner"), ExtResource("i_white_egg"), ExtResource("i_brown_egg"), ExtResource("i_garlic")])
+moves = Array[ExtResource("2_move")]([SubResource("Move_1"), SubResource("Move_2"), SubResource("Move_3"), SubResource("Move_4")])

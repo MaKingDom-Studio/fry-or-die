@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="IngredientModel" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/models/ingredient_model.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bgtvjkcw356j6" path="res://_Game/Art/Ingredients/Ing_Sock.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://bxebrt7h6u2ro" path="res://_Game/Art/Ingredients/Ing_Sock_Shadow.png" id="3_shadow"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"sock"
+display_name = "Sock"
+size = 2
+texture = ExtResource("2_tex")
+weight = 5
+multiplier = -1.0
+effect = 0
+effect_amount = 0
+locked = false
+permanent = false
+drops_on_player_side = true
+shadow_texture = ExtResource("3_shadow")
+shape = 1
+color = Color(0.55, 0.58, 0.66, 1)
+radius = 40.0
+price = 1
+shop_weight = 0.0

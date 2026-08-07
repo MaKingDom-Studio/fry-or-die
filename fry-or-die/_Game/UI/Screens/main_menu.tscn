@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://dyhqktiamn38q"]
+
+[ext_resource type="Script" uid="uid://7led70tw0lgi" path="res://_Game/UI/Screens/main_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" uid="uid://ch45esqeql6nj" path="res://_Game/Art/Main_Menu/Main_Menu_BG.png" id="2_bg"]
+[ext_resource type="Script" uid="uid://rycumwyghet2" path="res://_Game/UI/Screens/menu_title_letter.gd" id="3_letter"]
+[ext_resource type="Texture2D" uid="uid://c7qvnbnxoxvd1" path="res://_Game/Art/Main_Menu/Name_F.png" id="4_name_f"]
+[ext_resource type="Texture2D" uid="uid://cabrkh0ioiru8" path="res://_Game/Art/Main_Menu/Name_R.png" id="5_name_r"]
+[ext_resource type="Texture2D" uid="uid://hkgwl7u1m4d1" path="res://_Game/Art/Main_Menu/Name_Y.png" id="6_name_y"]
+[ext_resource type="Texture2D" uid="uid://cabc1h813t6cp" path="res://_Game/Art/Main_Menu/Name_OR.png" id="7_name_or"]
+[ext_resource type="Texture2D" uid="uid://b6208xlmv5n0u" path="res://_Game/Art/Main_Menu/Name_D.png" id="8_name_d"]
+[ext_resource type="Texture2D" uid="uid://q76c7wxhomro" path="res://_Game/Art/Main_Menu/Name_I.png" id="9_name_i"]
+[ext_resource type="Texture2D" uid="uid://dktj0o56gf57x" path="res://_Game/Art/Main_Menu/Name_E.png" id="10_name_e"]
+[ext_resource type="Texture2D" uid="uid://b5336jhkfw0pq" path="res://_Game/Art/Main_Menu/Main_Menu_Fire.png" id="11_fire"]
+[ext_resource type="Script" uid="uid://duyqjp4n2psx3" path="res://_Game/UI/Screens/menu_play_button.gd" id="12_play"]
+[ext_resource type="Texture2D" uid="uid://d07el6y0btwkm" path="res://_Game/Art/Main_Menu/Main_Menu_Button_Play.png" id="13_play_tex"]
+[ext_resource type="Texture2D" uid="uid://bgm484s5312wq" path="res://_Game/Art/Chef/Chef_Hero.png" id="14_chef"]
+[ext_resource type="Script" uid="uid://py7fe1m4pr0a" path="res://_Game/UI/Screens/volume_knob.gd" id="15_knob"]
+[ext_resource type="Texture2D" uid="uid://dfk2hd4jnwnih" path="res://_Game/Art/Main_Menu/Pan.png" id="16_pan"]
+[ext_resource type="Texture2D" uid="uid://ctkld625xb5oy" path="res://_Game/Art/Main_Menu/Pan_Handle.png" id="17_pan_handle"]
+[ext_resource type="Script" uid="uid://duahuvm3doi4g" path="res://_Game/UI/Widgets/scene_transition.gd" id="18_transition"]
+[ext_resource type="Material" uid="uid://ckoxqwbrui0xq" path="res://_Game/Data/Combat/FX/da_transition.tres" id="19_transition_mat"]
+[ext_resource type="FontFile" uid="uid://bu6byc4hli6vr" path="res://_Game/Art/UI/Fonts/Grunge Bold V2.ttf" id="20_font"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_volume"]
+font = ExtResource("20_font")
+font_size = 76
+font_color = Color(0.98, 0.9, 0.74, 1)
+outline_size = 12
+outline_color = Color(0.09, 0.06, 0.05, 0.85)
+
+[node name="MainMenu" type="Node2D" unique_id=2034828229]
+script = ExtResource("1_menu")
+
+[node name="Backdrop" type="Node2D" parent="." unique_id=1769041082]
+
+[node name="Background" type="Sprite2D" parent="Backdrop" unique_id=1977792661]
+position = Vector2(960, 540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_bg")
+
+[node name="Title" type="Node2D" parent="." unique_id=539816755]
+
+[node name="Letter_F" type="Sprite2D" parent="Title" unique_id=1709171131]
+position = Vector2(591.5, 374.7)
+scale = Vector2(0.4265, 0.4265)
+texture = ExtResource("4_name_f")
+script = ExtResource("3_letter")
+
+[node name="Letter_R" type="Sprite2D" parent="Title" unique_id=1379630309]
+position = Vector2(737.8, 521.7)
+scale = Vector2(0.4265, 0.4265)
+texture = ExtResource("5_name_r")
+script = ExtResource("3_letter")
+
+[node name="Letter_Y" type="Sprite2D" parent="Title" unique_id=358645571]
+position = Vector2(830.1, 368)
+scale = Vector2(0.4265, 0.4265)
+texture = ExtResource("6_name_y")
+script = ExtResource("3_letter")
+
+[node name="Letter_OR" type="Sprite2D" parent="Title" unique_id=342996390]
+position = Vector2(964.5, 506)
+scale = Vector2(0.4265, 0.4265)
+texture = ExtResource("7_name_or")
+script = ExtResource("3_letter")
+jitter_angle_deg = 2.2
+jitter_offset = Vector2(2.5, 2.5)
+jitter_speed = 8.5
+
+[node name="Letter_D" type="Sprite2D" parent="Title" unique_id=1405586925]
+position = Vector2(1128, 381.9)
+scale = Vector2(0.4265, 0.4265)
+texture = ExtResource("8_name_d")
+script = ExtResource("3_letter")
+
+[node name="Letter_I" type="Sprite2D" parent="Title" unique_id=320458791]
+position = Vector2(1326.5, 389.4)
+scale = Vector2(0.4265, 0.4265)
+texture = ExtResource("9_name_i")
+script = ExtResource("3_letter")
+
+[node name="Letter_E" type="Sprite2D" parent="Title" unique_id=1589161976]
+position = Vector2(1464.6, 452.9)
+scale = Vector2(0.4265, 0.4265)
+texture = ExtResource("10_name_e")
+script = ExtResource("3_letter")
+
+[node name="Flames" type="Node2D" parent="." unique_id=946730451]
+
+[node name="Fire" type="Sprite2D" parent="Flames" unique_id=168553637]
+position = Vector2(1004.4999, 627.1129)
+scale = Vector2(0.49100262, 0.4345157)
+texture = ExtResource("11_fire")
+
+[node name="Stage" type="Node2D" parent="." unique_id=1008755024]
+
+[node name="PlayButton" type="Sprite2D" parent="Stage" unique_id=1142388446]
+position = Vector2(967.9, 760.4)
+scale = Vector2(0.4265, 0.4265)
+texture = ExtResource("13_play_tex")
+script = ExtResource("12_play")
+
+[node name="Chef" type="Sprite2D" parent="Stage" unique_id=1206170239]
+position = Vector2(963.4, 558.3)
+scale = Vector2(0.2601, 0.2601)
+texture = ExtResource("14_chef")
+
+[node name="Sound" type="Node2D" parent="." unique_id=1168406485]
+position = Vector2(0, 1080)
+
+[node name="VolumeKnob" type="Node2D" parent="Sound" unique_id=669222160]
+z_index = 6
+position = Vector2(274, -190.4)
+scale = Vector2(0.4265, 0.4265)
+script = ExtResource("15_knob")
+angle_at_zero_deg = 3.0
+angle_at_full_deg = -120.0
+
+[node name="Pan" type="Sprite2D" parent="Sound/VolumeKnob" unique_id=852067685]
+texture = ExtResource("16_pan")
+
+[node name="Handle" type="Sprite2D" parent="Sound/VolumeKnob/Pan" unique_id=375077080]
+z_index = -2
+position = Vector2(325.5, 61)
+texture = ExtResource("17_pan_handle")
+
+[node name="Label" type="Label" parent="Sound/VolumeKnob" unique_id=1483920617]
+offset_left = -200.0
+offset_top = -62.0
+offset_right = 200.0
+offset_bottom = 62.0
+text = "VOLUME"
+label_settings = SubResource("LabelSettings_volume")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SceneTransition" type="ColorRect" parent="." unique_id=1259886685]
+z_index = 140
+material = ExtResource("19_transition_mat")
+offset_right = 2980.0
+offset_bottom = 1461.0
+mouse_filter = 2
+script = ExtResource("18_transition")

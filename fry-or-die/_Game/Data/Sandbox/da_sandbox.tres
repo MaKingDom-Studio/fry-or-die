@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SandboxConfig" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://_Game/Data/Sandbox/sandbox_config.gd" id="1_cfg"]
+[ext_resource type="Resource" path="res://_Game/Data/Inventory/da_inventory.tres" id="2_inv"]
+
+[resource]
+script = ExtResource("1_cfg")
+arena_width = 900.0
+arena_height = 540.0
+wall_thickness = 60.0
+inventory = ExtResource("2_inv")
+square_friction = 0.4
+elasticity = 1.0
+rotation_resistance = 0.0
+drop_gravity = 2600.0
+drop_stagger = 0.08
+drop_bounce = 0.3
+drag_stiffness = 60.0
+max_stretch = 300.0
+max_speed = 1400.0
+drag_inertia = 0.6

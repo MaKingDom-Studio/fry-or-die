@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="IngredientModel" format=3 uid="uid://vo8lf72fma28"]
+
+[ext_resource type="Script" uid="uid://cr76wx7m8473b" path="res://scripts/models/ingredient_model.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://c0652u2ur0cir" path="res://_Game/Art/Ingredients/Ing_Brown_Egg.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://p4fd8yx358s3" path="res://_Game/Art/Ingredients/Ing_Brown_Egg_Shadow.png" id="3_shadow"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"brown_egg"
+display_name = "Brown Egg"
+size = 0
+texture = ExtResource("2_tex")
+weight = 2
+price = 3
+shadow_texture = ExtResource("3_shadow")
+color = Color(0.76, 0.6, 0.42, 1)
+radius = 18.0

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="IngredientModel" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/models/ingredient_model.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://clp3rlgplwj1" path="res://_Game/Art/Ingredients/Ing_Chile_Pepper.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://bddwkewvqjvxc" path="res://_Game/Art/Ingredients/Ing_Chile_Pepper_Shadow.png" id="3_shadow"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"chile_pepper"
+display_name = "Chili Pepper"
+size = 1
+texture = ExtResource("2_tex")
+weight = 3
+multiplier = -1.0
+effect = 0
+effect_amount = 0
+locked = false
+permanent = false
+drops_on_player_side = false
+shadow_texture = ExtResource("3_shadow")
+shape = 1
+color = Color(0.8, 0.15, 0.12, 1)
+radius = 25.0
+price = 1
+shop_weight = 0.0

@@ -1,0 +1,40 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ckoxqwbrui0xq"]
+
+[ext_resource type="Shader" uid="uid://dgrw6qu34gpsv" path="res://_Game/Art/Shaders/transition_pattern.gdshader" id="1_shader"]
+
+[sub_resource type="Gradient" id="Grad_reveal"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradTex_reveal"]
+gradient = SubResource("Grad_reveal")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="FastNoiseLite" id="Noise_splat"]
+noise_type = 2
+frequency = 0.045
+cellular_return_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTex_splat"]
+width = 256
+height = 256
+noise = SubResource("Noise_splat")
+seamless = true
+
+[resource]
+shader = ExtResource("1_shader")
+shader_parameter/base_color = Color(0.03, 0.03, 0.04, 1)
+shader_parameter/node_resolution = Vector2(1152, 648)
+shader_parameter/factor = 0.0
+shader_parameter/width = 0.4
+shader_parameter/gradient_texture = SubResource("GradTex_reveal")
+shader_parameter/gradient_fixed = true
+shader_parameter/shape_texture = SubResource("NoiseTex_splat")
+shader_parameter/shape_tiling = 6.0
+shader_parameter/shape_rotation = 0.0
+shader_parameter/shape_scroll = Vector2(0, 0)
+shader_parameter/shape_feathering = 0.05
+shader_parameter/shape_treshold = 1.0

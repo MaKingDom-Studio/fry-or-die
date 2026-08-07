@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dn6ykwsq1e4hb"]
+
+[ext_resource type="Script" uid="uid://ct8vjrq05ndp4" path="res://_Game/UI/Widgets/sound_panel.gd" id="1_panel"]
+[ext_resource type="Script" uid="uid://b3xq7mfnyw2ka" path="res://_Game/UI/Widgets/sound_button.gd" id="2_button"]
+[ext_resource type="Texture2D" uid="uid://bkr2wq8fjm5t6" path="res://_Game/Art/UI/Button_Sound.png" id="3_button_tex"]
+[ext_resource type="Script" uid="uid://py7fe1m4pr0a" path="res://_Game/UI/Screens/volume_knob.gd" id="4_knob"]
+[ext_resource type="Texture2D" uid="uid://dfk2hd4jnwnih" path="res://_Game/Art/Main_Menu/Pan.png" id="5_pan"]
+[ext_resource type="Texture2D" uid="uid://ctkld625xb5oy" path="res://_Game/Art/Main_Menu/Pan_Handle.png" id="6_pan_handle"]
+[ext_resource type="FontFile" uid="uid://bu6byc4hli6vr" path="res://_Game/Art/UI/Fonts/Grunge Bold V2.ttf" id="7_font"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_volume"]
+font = ExtResource("7_font")
+font_size = 76
+font_color = Color(0.98, 0.9, 0.74, 1)
+outline_size = 12
+outline_color = Color(0.09, 0.06, 0.05, 0.85)
+
+[node name="SoundPanel" type="Node2D" unique_id=1904471221]
+z_index = 142
+script = ExtResource("1_panel")
+
+[node name="Slide" type="Node2D" parent="." unique_id=1904471222]
+
+[node name="VolumeKnob" type="Node2D" parent="Slide" unique_id=1904471223]
+position = Vector2(-160, 215)
+scale = Vector2(0.26, 0.26)
+script = ExtResource("4_knob")
+angle_at_zero_deg = 3.0
+angle_at_full_deg = -120.0
+
+[node name="Pan" type="Sprite2D" parent="Slide/VolumeKnob" unique_id=1904471224]
+texture = ExtResource("5_pan")
+
+[node name="Handle" type="Sprite2D" parent="Slide/VolumeKnob/Pan" unique_id=1904471225]
+z_index = -2
+position = Vector2(325.5, 61)
+texture = ExtResource("6_pan_handle")
+
+[node name="Label" type="Label" parent="Slide/VolumeKnob" unique_id=1904471226]
+offset_left = -200.0
+offset_top = -62.0
+offset_right = 200.0
+offset_bottom = 62.0
+text = "VOLUME"
+label_settings = SubResource("LabelSettings_volume")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Sprite2D" parent="." unique_id=1904471227]
+position = Vector2(-74, 70)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_button_tex")
+script = ExtResource("2_button")

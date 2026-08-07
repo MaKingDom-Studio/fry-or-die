@@ -1,0 +1,311 @@
+[gd_scene format=3 uid="uid://b6glco2tijur3"]
+
+[ext_resource type="Script" uid="uid://didv6bgcgft76" path="res://_Game/Core/GameModes/gm_shop.gd" id="1_gm"]
+[ext_resource type="Script" uid="uid://dnemusrpu77r1" path="res://_Game/Maps/scene_background.gd" id="2_bg"]
+[ext_resource type="Script" uid="uid://cmga0cgi1abh8" path="res://scripts/shop/shop_slot.gd" id="3_slot"]
+[ext_resource type="Script" uid="uid://ci4edee4difb4" path="res://scripts/shop/shop_fridge.gd" id="4_fridge"]
+[ext_resource type="Script" uid="uid://ct8yfmb0qn4w" path="res://_Game/UI/Widgets/bag_panel.gd" id="5_bag"]
+[ext_resource type="Script" uid="uid://h4lq1orvrlg8" path="res://_Game/UI/Widgets/star_balance.gd" id="6_stars"]
+[ext_resource type="Texture2D" uid="uid://snpmgtcnhkt5" path="res://_Game/Art/Shop/Shelf/Supermarket_BG.png" id="7_gx8vg"]
+[ext_resource type="Resource" path="res://_Game/Data/Shop/da_shop.tres" id="7_shop_cfg"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/da_combat.tres" id="8_combat_cfg"]
+[ext_resource type="Texture2D" uid="uid://lwc5oah0emof" path="res://_Game/Art/Shop/Shelf/Left_Shelf.png" id="8_sjtdx"]
+[ext_resource type="Texture2D" uid="uid://5p0jjceoixoj" path="res://_Game/Art/Shop/Shelf/Top_Shelf.png" id="9_osvv6"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/da_combat_theme.tres" id="9_theme"]
+[ext_resource type="Texture2D" uid="uid://duv2qgqxrb8ux" path="res://_Game/Art/Shop/Shelf/Right_Shelf.png" id="9_wqc5y"]
+[ext_resource type="Texture2D" uid="uid://jn2gxhb82evf" path="res://_Game/Art/Fridge/Icon_Fridge_Hero.png" id="9_xo0rd"]
+[ext_resource type="Resource" uid="uid://n1w5gwoqgxyg" path="res://_Game/Data/Combat/da_character_chef.tres" id="10_chr"]
+[ext_resource type="Texture2D" uid="uid://blvf88q0c5uht" path="res://_Game/Art/Shop/Price/Price_Tag_01.png" id="10_yljb1"]
+[ext_resource type="Texture2D" uid="uid://bga785sn8uc1e" path="res://_Game/Art/Shop/Price/Price_Tag_02.png" id="11_j8t1d"]
+[ext_resource type="Texture2D" uid="uid://23k36kxbi17v" path="res://_Game/Art/Shop/Price/Price_Tag_03.png" id="12_osvv6"]
+[ext_resource type="Script" uid="uid://b4spshf6r1q0y" path="res://_Game/UI/Widgets/spice_shelf.gd" id="13_shelf"]
+[ext_resource type="Script" uid="uid://pruaf8hwyys" path="res://_Game/UI/Widgets/swaying_sign.gd" id="14_sign"]
+[ext_resource type="Script" uid="uid://cevkt6xry5qh" path="res://_Game/UI/Widgets/swaying_sprite.gd" id="15_swaysprite"]
+[ext_resource type="Texture2D" uid="uid://bgjlu75vop0i2" path="res://_Game/Art/Shop/Cloud/Cloud_03.png" id="16_c4mfn"]
+[ext_resource type="Texture2D" uid="uid://dprhfdtiexgsf" path="res://_Game/Art/Shop/Cloud/Cloud_02.png" id="17_vmay4"]
+[ext_resource type="Texture2D" uid="uid://bk84r6cgcjgdv" path="res://_Game/Art/Shop/Cloud/Cloud_01.png" id="19_i55yl"]
+[ext_resource type="Texture2D" uid="uid://v6i4bbrua8wr" path="res://_Game/Art/Item/T_Item_Desk.png" id="20_hga4c"]
+[ext_resource type="Script" uid="uid://chlqf8wchmt5s" path="res://_Game/UI/Widgets/price_tag.gd" id="21_price"]
+[ext_resource type="Script" uid="uid://cu3mcof5gaorh" path="res://_Game/UI/Widgets/reveal_sequence.gd" id="22_reveal"]
+[ext_resource type="Script" uid="uid://b00m6ngkf5rih" path="res://_Game/UI/Widgets/reveal_step.gd" id="23_step"]
+[ext_resource type="FontFile" uid="uid://bu6byc4hli6vr" path="res://_Game/Art/UI/Fonts/Grunge Bold V2.ttf" id="24_font"]
+[ext_resource type="Script" uid="uid://difh44aqcx647" path="res://_Game/UI/Widgets/character_figure.gd" id="25_chef"]
+[ext_resource type="Texture2D" uid="uid://br6q23vris2bk" path="res://_Game/Art/Chef/Player.png" id="26_chef_tex"]
+[ext_resource type="Script" uid="uid://ciauyxhougbu4" path="res://_Game/UI/Widgets/hover_tooltip.gd" id="27_tooltip"]
+[ext_resource type="Texture2D" uid="uid://tlng0gfmrugn" path="res://_Game/Art/Shop/Button_Leave.png" id="28_leave"]
+[ext_resource type="Texture2D" uid="uid://cw307kkgpmtqv" path="res://_Game/Art/Fridge/Fridge_Storage.png" id="29_fridge_storage"]
+[ext_resource type="Texture2D" uid="uid://cvnafhtfndkdp" path="res://_Game/Tooltip/Description_Sheet_01.png" id="30_sheet_small"]
+[ext_resource type="Texture2D" uid="uid://b0ev7y3fda4ds" path="res://_Game/Tooltip/Description_Sheet_02.png" id="31_sheet_large"]
+[ext_resource type="PackedScene" uid="uid://dn6ykwsq1e4hb" path="res://_Game/UI/Widgets/sound_panel.tscn" id="32_sound"]
+
+[node name="Shop" type="Node2D" unique_id=1541708619]
+script = ExtResource("1_gm")
+shop_config = ExtResource("7_shop_cfg")
+combat_config = ExtResource("8_combat_cfg")
+theme = ExtResource("9_theme")
+character = ExtResource("10_chr")
+leave_texture = ExtResource("28_leave")
+
+[node name="Background" type="Node2D" parent="." unique_id=60834804]
+z_index = -10
+script = ExtResource("2_bg")
+color = Color(0.07, 0.06, 0.08, 1)
+texture = ExtResource("7_gx8vg")
+
+[node name="LeftShelf" type="Sprite2D" parent="." unique_id=47807122]
+position = Vector2(58.312496, 473)
+scale = Vector2(0.33088237, 0.30007762)
+texture = ExtResource("8_sjtdx")
+
+[node name="TopShelf" type="Sprite2D" parent="." unique_id=1588118737]
+position = Vector2(576, 44)
+scale = Vector2(0.27839535, 0.24444444)
+texture = ExtResource("9_osvv6")
+
+[node name="RightShelf" type="Sprite2D" parent="." unique_id=277458444]
+position = Vector2(1103.0625, 365.125)
+scale = Vector2(0.28021792, 0.2976658)
+texture = ExtResource("9_wqc5y")
+
+[node name="Price" type="Node" parent="." unique_id=1914258414]
+
+[node name="PriceTag01" type="Sprite2D" parent="Price" unique_id=726823467]
+position = Vector2(786.375, 217.37502)
+scale = Vector2(0.29888934, 0.28157902)
+texture = ExtResource("10_yljb1")
+script = ExtResource("21_price")
+font = ExtResource("24_font")
+
+[node name="PriceTag02" type="Sprite2D" parent="Price" unique_id=239377268]
+position = Vector2(541.75, 426.125)
+scale = Vector2(0.30523238, 0.30555534)
+texture = ExtResource("11_j8t1d")
+script = ExtResource("21_price")
+price = 3
+font = ExtResource("24_font")
+
+[node name="PriceTag07" type="Sprite2D" parent="Price" unique_id=180961932]
+position = Vector2(669, 222)
+scale = Vector2(0.30523238, 0.30555534)
+texture = ExtResource("11_j8t1d")
+script = ExtResource("21_price")
+font = ExtResource("24_font")
+
+[node name="PriceTag06" type="Sprite2D" parent="Price" unique_id=157251489]
+position = Vector2(800, 319)
+scale = Vector2(0.30523238, 0.30555534)
+texture = ExtResource("11_j8t1d")
+script = ExtResource("21_price")
+font = ExtResource("24_font")
+
+[node name="PriceTag03" type="Sprite2D" parent="Price" unique_id=495753454]
+position = Vector2(540.375, 212.75)
+scale = Vector2(0.28493458, 0.31250024)
+texture = ExtResource("12_osvv6")
+script = ExtResource("21_price")
+font = ExtResource("24_font")
+
+[node name="PriceTag05" type="Sprite2D" parent="Price" unique_id=1902735097]
+position = Vector2(797, 424)
+scale = Vector2(0.28493458, 0.31250024)
+texture = ExtResource("12_osvv6")
+script = ExtResource("21_price")
+font = ExtResource("24_font")
+
+[node name="PriceTag08" type="Sprite2D" parent="Price" unique_id=1424221698]
+position = Vector2(531, 317.00003)
+scale = Vector2(0.28493458, 0.31250024)
+texture = ExtResource("12_osvv6")
+script = ExtResource("21_price")
+font = ExtResource("24_font")
+
+[node name="PriceTag04" type="Sprite2D" parent="Price" unique_id=1935576673]
+position = Vector2(667.00006, 316)
+scale = Vector2(0.29666638, 0.31842107)
+texture = ExtResource("10_yljb1")
+script = ExtResource("21_price")
+font = ExtResource("24_font")
+
+[node name="PriceTag09" type="Sprite2D" parent="Price" unique_id=395806232]
+position = Vector2(670, 426)
+scale = Vector2(0.29666638, 0.31842107)
+texture = ExtResource("10_yljb1")
+script = ExtResource("21_price")
+font = ExtResource("24_font")
+
+[node name="Slots" type="Node2D" parent="." unique_id=386391854]
+
+[node name="SlotLarge1" type="Node2D" parent="Slots" unique_id=1411200756 node_paths=PackedStringArray("price_tag")]
+position = Vector2(539, 362)
+script = ExtResource("3_slot")
+size = Vector2(120, 86)
+price_tag = NodePath("../../Price/PriceTag02")
+
+[node name="SlotLarge2" type="Node2D" parent="Slots" unique_id=235323796 node_paths=PackedStringArray("price_tag")]
+position = Vector2(677, 362)
+script = ExtResource("3_slot")
+size = Vector2(120, 86)
+price_tag = NodePath("../../Price/PriceTag09")
+
+[node name="SlotLarge3" type="Node2D" parent="Slots" unique_id=350787675 node_paths=PackedStringArray("price_tag")]
+position = Vector2(801, 362)
+script = ExtResource("3_slot")
+size = Vector2(120, 86)
+price_tag = NodePath("../../Price/PriceTag05")
+
+[node name="SlotSmall1" type="Node2D" parent="Slots" unique_id=561633888 node_paths=PackedStringArray("price_tag")]
+position = Vector2(802, 254)
+script = ExtResource("3_slot")
+kind = 1
+size = Vector2(120, 86)
+price_tag = NodePath("../../Price/PriceTag06")
+
+[node name="SlotSmall2" type="Node2D" parent="Slots" unique_id=1283425826 node_paths=PackedStringArray("price_tag")]
+position = Vector2(538, 254)
+script = ExtResource("3_slot")
+kind = 1
+size = Vector2(120, 86)
+price_tag = NodePath("../../Price/PriceTag08")
+
+[node name="SlotSmall3" type="Node2D" parent="Slots" unique_id=879337656 node_paths=PackedStringArray("price_tag")]
+position = Vector2(671, 254)
+script = ExtResource("3_slot")
+kind = 1
+size = Vector2(120, 86)
+price_tag = NodePath("../../Price/PriceTag04")
+
+[node name="SlotSpice1" type="Node2D" parent="Slots" unique_id=1637794780 node_paths=PackedStringArray("price_tag")]
+position = Vector2(670, 157)
+script = ExtResource("3_slot")
+kind = 2
+size = Vector2(120, 86)
+price_tag = NodePath("../../Price/PriceTag07")
+
+[node name="SlotSpice2" type="Node2D" parent="Slots" unique_id=360127440 node_paths=PackedStringArray("price_tag")]
+position = Vector2(537, 157)
+script = ExtResource("3_slot")
+kind = 2
+size = Vector2(120, 86)
+price_tag = NodePath("../../Price/PriceTag03")
+
+[node name="SlotSpice3" type="Node2D" parent="Slots" unique_id=1901567875 node_paths=PackedStringArray("price_tag")]
+position = Vector2(801, 157)
+script = ExtResource("3_slot")
+kind = 2
+size = Vector2(120, 86)
+price_tag = NodePath("../../Price/PriceTag01")
+
+[node name="Fridge" type="Node2D" parent="." unique_id=1256200252]
+z_index = 10
+position = Vector2(558, 445)
+scale = Vector2(0.875, 0.875)
+script = ExtResource("4_fridge")
+area_size = Vector2(280, 220)
+texture = ExtResource("9_xo0rd")
+fill_color = Color(0.16078432, 0.2, 0.25882354, 0)
+border_color = Color(0.5019608, 0.6509804, 0.8509804, 0)
+highlight_border_color = Color(0.25882354, 0.14901961, 0.05882353, 1)
+hover_border_color = Color(0.25882354, 0.14901961, 0.05882353, 1)
+title = ""
+title_color = Color(0.7490196, 0.81960785, 0.92156863, 0)
+hint = ""
+
+[node name="Cloud03" type="Sprite2D" parent="." unique_id=54962776]
+position = Vector2(298.75, 427.375)
+scale = Vector2(0.29545447, 0.30194747)
+texture = ExtResource("16_c4mfn")
+script = ExtResource("15_swaysprite")
+
+[node name="Cloud02" type="Sprite2D" parent="." unique_id=938027042]
+position = Vector2(271.25003, 395.43753)
+scale = Vector2(0.2995689, 0.30543453)
+texture = ExtResource("17_vmay4")
+script = ExtResource("15_swaysprite")
+
+[node name="PlayerSpicesSign" type="Node2D" parent="." unique_id=441783436]
+position = Vector2(255, 261)
+scale = Vector2(0.305, 0.305)
+script = ExtResource("14_sign")
+texture = ExtResource("19_i55yl")
+caption = ""
+plate_size = Vector2(50, 44)
+
+[node name="TItemDesk" type="Sprite2D" parent="." unique_id=276185190]
+position = Vector2(243, 310)
+scale = Vector2(0.29583922, 0.2596685)
+texture = ExtResource("20_hga4c")
+
+[node name="SpiceShelf" type="Node2D" parent="." unique_id=2035271014]
+position = Vector2(156, 121)
+scale = Vector2(1, 0.99999994)
+script = ExtResource("13_shelf")
+area_size = Vector2(170.84, 198.735)
+drop_point = Vector2(83.315, 40.165)
+z_base = 69
+left_wall_height = 29.0
+right_wall_height = 35.0
+
+[node name="Chef" type="Node2D" parent="." unique_id=1669706625]
+position = Vector2(290, 600)
+script = ExtResource("25_chef")
+texture = ExtResource("26_chef_tex")
+figure_height = 150.0
+
+[node name="Reveal" type="Node" parent="." unique_id=764734033]
+script = ExtResource("22_reveal")
+start_delay = 0.4
+
+[node name="Step1Cloud03" type="Node" parent="Reveal" unique_id=718499988 node_paths=PackedStringArray("targets")]
+script = ExtResource("23_step")
+targets = [NodePath("../../Cloud03")]
+delay = 0.0
+
+[node name="Step2Cloud02" type="Node" parent="Reveal" unique_id=1118769101 node_paths=PackedStringArray("targets")]
+script = ExtResource("23_step")
+targets = [NodePath("../../Cloud02")]
+
+[node name="Step3Sign" type="Node" parent="Reveal" unique_id=299735155 node_paths=PackedStringArray("targets")]
+script = ExtResource("23_step")
+targets = [NodePath("../../PlayerSpicesSign")]
+
+[node name="Step4DeskShelf" type="Node" parent="Reveal" unique_id=921152343 node_paths=PackedStringArray("targets")]
+script = ExtResource("23_step")
+targets = [NodePath("../../TItemDesk"), NodePath("../../SpiceShelf")]
+fade = 0.55
+
+[node name="Hud" type="Node2D" parent="." unique_id=768954963]
+z_index = 100
+
+[node name="StarBalance" type="Node2D" parent="Hud" unique_id=2094022538]
+position = Vector2(42, 42)
+script = ExtResource("6_stars")
+star_radius = 26.655
+font_size = 42
+font = ExtResource("24_font")
+editor_preview_stars = 56
+
+[node name="Bag" type="Node2D" parent="." unique_id=1111475929]
+visible = false
+z_index = 120
+position = Vector2(139, 1)
+script = ExtResource("5_bag")
+panel_size = Vector2(900, 673.61)
+title = "Player bag"
+main_sections = Array[Rect2]([Rect2(150, 130, 433.3, 119.65), Rect2(150, 259.21, 433.3, 111.99), Rect2(150, 381.435, 433.3, 110.755), Rect2(150, 502.035, 433, 143.855)])
+reserve_section = Rect2(150, 130, 433.3, 516.155)
+texture = ExtResource("29_fridge_storage")
+open_offset = Vector2(0, 900)
+open_transition = 0
+fill_color = Color(0, 0, 0, 0)
+border_color = Color(0.8509804, 0.6509804, 0.34901962, 0)
+title_color = Color(0, 0, 0, 0)
+title_font_size = 1
+
+[node name="Tooltip" type="Node2D" parent="."]
+z_index = 135
+script = ExtResource("27_tooltip")
+window_small = ExtResource("30_sheet_small")
+window_large = ExtResource("31_sheet_large")
+combat_config = ExtResource("8_combat_cfg")
+
+[node name="SoundPanel" parent="." instance=ExtResource("32_sound")]

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://wcuylrxmmujn"]
+
+[ext_resource type="Script" uid="uid://depl4qjbkcqw6" path="res://_Game/Core/GameModes/gm_map.gd" id="1_gm"]
+[ext_resource type="Script" uid="uid://dnemusrpu77r1" path="res://_Game/Maps/scene_background.gd" id="2_bg"]
+[ext_resource type="Resource" path="res://_Game/Data/Map/da_map_act1.tres" id="3_map_cfg"]
+[ext_resource type="Resource" path="res://_Game/Data/Map/da_map_style.tres" id="4_map_style"]
+[ext_resource type="Resource" uid="uid://n1w5gwoqgxyg" path="res://_Game/Data/Combat/da_character_chef.tres" id="5_chr"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/da_combat.tres" id="6_combat_cfg"]
+[ext_resource type="Script" uid="uid://h4lq1orvrlg8" path="res://_Game/UI/Widgets/star_balance.gd" id="7_stars"]
+[ext_resource type="FontFile" uid="uid://bu6byc4hli6vr" path="res://_Game/Art/UI/Fonts/Grunge Bold V2.ttf" id="8_font"]
+[ext_resource type="Script" uid="uid://duahuvm3doi4g" path="res://_Game/UI/Widgets/scene_transition.gd" id="9_transition"]
+[ext_resource type="Material" uid="uid://ckoxqwbrui0xq" path="res://_Game/Data/Combat/FX/da_transition.tres" id="10_transition_mat"]
+[ext_resource type="Resource" path="res://_Game/Data/Map/da_map_spike.tres" id="11_map_spike"]
+[ext_resource type="PackedScene" uid="uid://dn6ykwsq1e4hb" path="res://_Game/UI/Widgets/sound_panel.tscn" id="12_sound"]
+
+[node name="Map" type="Node2D" unique_id=1337736505]
+script = ExtResource("1_gm")
+map_config = ExtResource("3_map_cfg")
+style = ExtResource("4_map_style")
+spike_style = ExtResource("11_map_spike")
+character = ExtResource("5_chr")
+combat_config = ExtResource("6_combat_cfg")
+
+[node name="Background" type="Node2D" parent="." unique_id=1938490391]
+z_index = -10
+script = ExtResource("2_bg")
+color = Color(0.27, 0.27, 0.28, 1)
+
+[node name="Hud" type="Node2D" parent="." unique_id=1448898697]
+z_index = 100
+
+[node name="StarBalance" type="Node2D" parent="Hud" unique_id=1126805846]
+position = Vector2(74, 72)
+script = ExtResource("7_stars")
+star_radius = 22.0
+font_size = 34
+font = ExtResource("8_font")
+editor_preview_stars = 0
+
+[node name="SceneTransition" type="ColorRect" parent="." unique_id=1386318410]
+z_index = 140
+material = ExtResource("10_transition_mat")
+offset_right = 2980.0
+offset_bottom = 1461.0
+mouse_filter = 2
+script = ExtResource("9_transition")
+
+[node name="SoundPanel" parent="." instance=ExtResource("12_sound")]

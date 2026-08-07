@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="IngredientModel" format=3 uid="uid://x0sbr4vpayt8"]
+
+[ext_resource type="Script" uid="uid://cr76wx7m8473b" path="res://scripts/models/ingredient_model.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dp6at8l4kfd60" path="res://_Game/Art/Ingredients/Ing_Soap.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"soap"
+display_name = "Soap"
+size = 0
+texture = ExtResource("2_tex")
+weight = 3
+multiplier = -1.0
+price = 1
+shop_weight = 0.0
+drops_on_player_side = true
+color = Color(0.55, 0.8, 0.85, 1)
+radius = 23.0

@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://m03kl54qiuwj"]
+
+[ext_resource type="Shader" uid="uid://b6337nwngaqlp" path="res://_Game/Art/Shaders/score_hit.gdshader" id="1_shader"]
+
+[sub_resource type="FastNoiseLite" id="Noise_wind"]
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTex_wind"]
+width = 128
+height = 128
+noise = SubResource("Noise_wind")
+seamless = true
+
+[resource]
+shader = ExtResource("1_shader")
+shader_parameter/get_hit = true
+shader_parameter/hit_effect = 0.0
+shader_parameter/shake_intensity = 5.0
+shader_parameter/flash_speed = 30.0
+shader_parameter/flash_color = Color(1, 0.85, 0.3, 1)
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTex_wind")
+shader_parameter/amplitude = 0.05
+shader_parameter/time_scale = 0.04
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)

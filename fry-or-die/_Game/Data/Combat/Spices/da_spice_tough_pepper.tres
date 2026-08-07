@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpiceToughPepper" format=3 uid="uid://b8p7xuyk4bpx3"]
+
+[ext_resource type="Script" uid="uid://immypqihorx6" path="res://scripts/models/spices/spice_tough_pepper.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://brvfpgpmvoeix" path="res://_Game/Art/Spices/Salt.png" id="2_3wyba"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"tough_pepper"
+display_name = "Tough Pepper"
+description = "The enemy needs 1 more star to defeat you."
+texture = ExtResource("2_3wyba")
+color = Color(0.55, 0.12, 0.1, 1)
+visual_scale = 0.9
+price = 15

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkynadwuf8r61"
+path="res://.godot/imported/Crowander - Bye Bye Intro.mp3-aad6c1411ac2b21e535aafa2bac2f31b.mp3str"
+
+[deps]
+
+source_file="res://_Game/Audio/Music/Crowander - Bye Bye Intro.mp3"
+dest_files=["res://.godot/imported/Crowander - Bye Bye Intro.mp3-aad6c1411ac2b21e535aafa2bac2f31b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

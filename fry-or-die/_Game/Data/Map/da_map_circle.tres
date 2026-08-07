@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CircleStyle" format=3]
+
+[ext_resource type="Script" path="res://_Game/Data/Map/circle_style.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://b7r3dopttt4s4" path="res://_Game/Art/Map/Circle_01.png" id="2_circle_01"]
+[ext_resource type="Texture2D" uid="uid://bc7ab7q160y15" path="res://_Game/Art/Map/Circle_02.png" id="3_circle_02"]
+[ext_resource type="Texture2D" uid="uid://c3mfy70v65ipc" path="res://_Game/Art/Map/Circle_03.png" id="4_circle_03"]
+
+[resource]
+script = ExtResource("1_script")
+layer = 1
+variants = Array[Texture2D]([ExtResource("2_circle_01"), ExtResource("3_circle_02"), ExtResource("4_circle_03")])
+color = Color(1, 1, 1, 1)
+size = Vector2(132, 114)
+offset = Vector2(0, 0)
+draw_time = 0.34
+erase_time = 0.2
+hold_time = 0.18
+start_angle_degrees = 180.0
+clockwise = true
+segments = 48
+stroke_width = 5.0

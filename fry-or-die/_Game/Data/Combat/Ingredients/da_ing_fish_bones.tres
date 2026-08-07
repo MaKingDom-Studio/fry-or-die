@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="IngredientModel" format=3 uid="uid://df0kj0auws3rq"]
+
+[ext_resource type="Script" uid="uid://cr76wx7m8473b" path="res://scripts/models/ingredient_model.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cp6tue3y6ck5t" path="res://_Game/Art/Ingredients/Ing_Fish_Bones.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://cw0uho3u8di3g" path="res://_Game/Art/Ingredients/Ing_Fish_Bones_Shadow.png" id="3_shadow"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"fish_bones"
+display_name = "Fish Bones"
+texture = ExtResource("2_tex")
+weight = 3
+multiplier = -1.0
+price = 1
+shop_weight = 0.0
+drops_on_player_side = true
+shadow_texture = ExtResource("3_shadow")
+color = Color(0.9, 0.88, 0.8, 1)
+radius = 34.0

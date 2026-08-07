@@ -1,0 +1,98 @@
+[gd_resource type="Resource" script_class="EnemyModel" format=3 uid="uid://buer3048nwfnu"]
+
+[ext_resource type="Script" uid="uid://bmknppjabmiv4" path="res://_Game/Data/Combat/portrait_style.gd" id="1_portrait"]
+[ext_resource type="Script" uid="uid://xo362ml61oo5" path="res://scripts/models/enemy_model.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://w3xbjulk4k10" path="res://scripts/models/enemy_move.gd" id="2_move"]
+[ext_resource type="Script" uid="uid://cq8n2vg7rkxm4" path="res://scripts/models/enemy_spawn_group.gd" id="3_group"]
+[ext_resource type="Script" uid="uid://cr76wx7m8473b" path="res://scripts/models/ingredient_model.gd" id="4_ing"]
+[ext_resource type="Texture2D" uid="uid://ml6xdslh6mos" path="res://_Game/Art/Chef/Chef_BOSS.png" id="art_chef"]
+[ext_resource type="Resource" uid="uid://tjejbe6dn1i8" path="res://_Game/Data/Combat/Ingredients/da_ing_cheese.tres" id="i_cheese"]
+[ext_resource type="Resource" uid="uid://df0kj0auws3rq" path="res://_Game/Data/Combat/Ingredients/da_ing_fish_bones.tres" id="i_fish_bones"]
+[ext_resource type="Resource" uid="uid://bcndtgb4bkv3n" path="res://_Game/Data/Combat/Ingredients/da_ing_meat.tres" id="i_meat"]
+[ext_resource type="Resource" uid="uid://co6sqoxwjmk56" path="res://_Game/Data/Combat/Ingredients/da_ing_salmon.tres" id="i_salmon"]
+[ext_resource type="Resource" uid="uid://dwpyqtxyty6kj" path="res://_Game/Data/Combat/Ingredients/da_ing_shiitake.tres" id="i_shiitake"]
+[ext_resource type="Resource" uid="uid://x0sbr4vpayt8" path="res://_Game/Data/Combat/Ingredients/da_ing_soap.tres" id="i_soap"]
+[ext_resource type="Resource" uid="uid://kw23nixqtld5" path="res://_Game/Data/Combat/Ingredients/da_ing_tomatoes.tres" id="i_tomatoes"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Ingredients/da_ing_turner.tres" id="i_turner"]
+[ext_resource type="Resource" path="res://_Game/Data/Combat/Ingredients/da_ing_white_egg.tres" id="i_white_egg"]
+
+[sub_resource type="Resource" id="G1_meat"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_meat")
+count = 2
+
+[sub_resource type="Resource" id="G1_soap_player"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_soap")
+count = 2
+placement = 1
+
+[sub_resource type="Resource" id="Move_1"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G1_meat"), SubResource("G1_soap_player")])
+
+[sub_resource type="Resource" id="G2_random"]
+script = ExtResource("3_group")
+random_points = 24
+random_points_variance = 4
+
+[sub_resource type="Resource" id="G2_bones_player"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_fish_bones")
+count = 2
+placement = 1
+
+[sub_resource type="Resource" id="Move_2"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G2_random"), SubResource("G2_bones_player")])
+
+[sub_resource type="Resource" id="G3_cheese"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_cheese")
+count = 2
+
+[sub_resource type="Resource" id="G3_turner_center"]
+script = ExtResource("3_group")
+ingredient = ExtResource("i_turner")
+count = 3
+placement = 2
+
+[sub_resource type="Resource" id="Move_3"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G3_cheese"), SubResource("G3_turner_center")])
+
+[sub_resource type="Resource" id="G4_random"]
+script = ExtResource("3_group")
+random_points = 30
+random_points_variance = 6
+
+[sub_resource type="Resource" id="Move_4"]
+script = ExtResource("2_move")
+groups = Array[ExtResource("3_group")]([SubResource("G4_random")])
+
+[sub_resource type="Resource" id="Portrait_boss"]
+script = ExtResource("1_portrait")
+texture = ExtResource("art_chef")
+texture_size = 96.0
+scale = 1.7
+body_color = Color(0.16, 0.15, 0.2, 1)
+skin_color = Color(0.9, 0.86, 0.82, 1)
+hat_color = Color(0.85, 0.83, 0.86, 1)
+eyes_color = Color(0.9, 0.25, 0.2, 1)
+has_mustache = true
+mustache_color = Color(0.15, 0.14, 0.16, 1)
+name_color = Color(1, 0.72, 0.3, 1)
+
+[resource]
+script = ExtResource("1_script")
+id = &"boss_head_chef"
+display_name = "BOSS"
+portrait = SubResource("Portrait_boss")
+star_target = 10
+spawn_count_multiplier = 2
+inventory = Array[ExtResource("4_ing")]([ExtResource("i_meat"), ExtResource("i_cheese"), ExtResource("i_salmon"), ExtResource("i_tomatoes"), ExtResource("i_shiitake"), ExtResource("i_white_egg"), ExtResource("i_turner")])
+moves = Array[ExtResource("2_move")]([SubResource("Move_1"), SubResource("Move_2"), SubResource("Move_3"), SubResource("Move_4")])
+empower_every_n_rounds = 3
+empower_ingredient = ExtResource("i_turner")
+empower_limit = 4
+burn_player_ingredients = 1

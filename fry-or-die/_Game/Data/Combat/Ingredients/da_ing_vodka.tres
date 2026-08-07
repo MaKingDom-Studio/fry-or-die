@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="IngredientModel" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/models/ingredient_model.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://c0bo766qh2r7w" path="res://_Game/Art/Ingredients/Ing_Vodka.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://bn4hxw6iq2x64" path="res://_Game/Art/Ingredients/Ing_Vodka_Shadow.png" id="3_shadow"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"vodka"
+display_name = "Vodka"
+size = 1
+texture = ExtResource("2_tex")
+weight = 0
+multiplier = 0.0
+effect = 4
+effect_amount = 1
+locked = false
+permanent = false
+drops_on_player_side = false
+shadow_texture = ExtResource("3_shadow")
+shape = 1
+color = Color(0.85, 0.9, 0.95, 1)
+radius = 32.0
+price = 8
+shop_weight = 0.0

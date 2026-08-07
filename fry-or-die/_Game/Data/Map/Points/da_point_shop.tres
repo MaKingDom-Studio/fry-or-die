@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MapPointArt" format=3]
+
+[ext_resource type="Script" path="res://_Game/Data/Map/map_point_art.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cmiqjctwd2gtw" path="res://_Game/Art/Map/Map_Sheet_Supermarket.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_script")
+texture = ExtResource("2_texture")
+size = Vector2(88, 85.3)
+pivot = Vector2(0.5, 0.46)
+tilt_degrees = 0.0
+circle_scale = 1.05
+letter = "S"
+draw_paper = true
