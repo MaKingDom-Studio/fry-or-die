@@ -22,7 +22,7 @@ Hit the supermarket to grab fresh ingredients for your fridge, and pick up spice
 </td>
 <td width="40%" valign="top">
 
-<img src="https://github.com/user-attachments/assets/3d28249f-8562-4995-b791-bfa38b172506" width="100%">
+<img src="https://github.com/user-attachments/assets/370b2615-8423-4c73-b4cc-488982936efc" width="100%">
 <img src="https://github.com/user-attachments/assets/3d28249f-8562-4995-b791-bfa38b172506" width="100%">
 <img src="https://github.com/user-attachments/assets/6020aed1-0904-4a2f-8a45-36326abcc3bd" width="100%">
 <img src="https://github.com/user-attachments/assets/ed6d6b91-10fa-45f4-82fc-97c3dea67f26" width="100%">
@@ -30,7 +30,8 @@ Hit the supermarket to grab fresh ingredients for your fridge, and pick up spice
 <img src="https://github.com/user-attachments/assets/f01896fa-8468-488d-b32b-53be6e6e4459" width="100%">
 <img src="https://github.com/user-attachments/assets/6ea095a9-db7d-4e9f-999d-9b7b7bcb584a" width="100%">
 
-</td><img width="1692" height="945" alt="scr3" src="https://github.com/user-attachments/assets/6020aed1-0904-4a2f-8a45-36326abcc3bd" />
+</td><img width="1880" height="943" alt="scr7" src="https://github.com/user-attachments/assets/a5473b19-fc81-46db-829e-f086e7a1c173" />
+
 
 </tr>
 </table>
